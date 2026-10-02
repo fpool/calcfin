@@ -4,22 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>try{const t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='dark';}catch(e){}</script>
-<title>Free Financial Calculators — Loans, Mortgage, Savings, Interest | CalcFin</title>
-<meta name="description" content="Free online financial calculators: compound interest, loan payments, mortgage, savings goals, credit card payoff, inflation, ROI and retirement. Private, no signup.">
-<link rel="canonical" href="https://calcfin-vpg.pages.dev/">
+<title>Calculateur d'objectif d'épargne — combien épargner par mois | CalcFin</title>
+<meta name="description" content="Calculez l'épargne mensuelle nécessaire pour atteindre un montant à une échéance, avec intérêts composés. Gratuit et privé.">
+<link rel="canonical" href="https://calcfin-vpg.pages.dev/savings-goal-fr">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CalcFin">
-<meta property="og:title" content="Free Financial Calculators — Loans, Mortgage, Savings, Interest | CalcFin">
-<meta property="og:description" content="Free online financial calculators: compound interest, loan payments, mortgage, savings goals, credit card payoff, inflation, ROI and retirement. Private, no signup.">
-<meta property="og:url" content="https://calcfin-vpg.pages.dev/">
+<meta property="og:title" content="Calculateur d'objectif d'épargne — combien épargner par mois | CalcFin">
+<meta property="og:description" content="Calculez l'épargne mensuelle nécessaire pour atteindre un montant à une échéance, avec intérêts composés. Gratuit et privé.">
+<meta property="og:url" content="https://calcfin-vpg.pages.dev/savings-goal-fr">
 <meta name="twitter:card" content="summary">
-  <link rel="alternate" hreflang="en" href="https://calcfin-vpg.pages.dev/index">
-  <link rel="alternate" hreflang="de" href="https://calcfin-vpg.pages.dev/index-de">
-  <link rel="alternate" hreflang="fr" href="https://calcfin-vpg.pages.dev/index-fr">
-  <link rel="alternate" hreflang="es" href="https://calcfin-vpg.pages.dev/index-es">
-  <link rel="alternate" hreflang="x-default" href="https://calcfin-vpg.pages.dev/index">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CalcFin","url":"https://calcfin-vpg.pages.dev/","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free online financial calculators: compound interest, loan payments, mortgage, savings goals, credit card payoff, inflation, ROI and retirement. Private, no signup."}</script>
-
+  <link rel="alternate" hreflang="en" href="https://calcfin-vpg.pages.dev/savings-goal">
+  <link rel="alternate" hreflang="de" href="https://calcfin-vpg.pages.dev/savings-goal-de">
+  <link rel="alternate" hreflang="fr" href="https://calcfin-vpg.pages.dev/savings-goal-fr">
+  <link rel="alternate" hreflang="es" href="https://calcfin-vpg.pages.dev/savings-goal-es">
+  <link rel="alternate" hreflang="x-default" href="https://calcfin-vpg.pages.dev/savings-goal">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CalcFin — Calculateur d'objectif d'épargne","url":"https://calcfin-vpg.pages.dev/savings-goal-fr","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Calculez l'épargne mensuelle nécessaire pour atteindre un montant à une échéance, avec intérêts composés. Gratuit et privé."}</script>
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Et si je ne peux pas assumer la mensualité ?","acceptedAnswer":{"@type":"Answer","text":"Prolongez l'échéance, réduisez l'objectif ou cherchez un meilleur rendement — testez chaque levier instantanément."}},{"@type":"Question","name":"L'épargne est-elle mensuelle ou annuelle ?","acceptedAnswer":{"@type":"Answer","text":"Mensuelle, en fin de mois."}},{"@type":"Question","name":"Utilisable pour un apport immobilier ?","acceptedAnswer":{"@type":"Answer","text":"Oui — c'est un usage très courant."}}]}
 <style>
   :root { --brand:#0e7490; --brand-soft:#ecfeff; --bg:#f8fafc; --card:#fff; --text:#0f172a; --muted:#475569; --faint:#64748b; --border:#e2e8f0; --shadow:rgba(0,0,0,.07); --ok:#067647; --ok-bg:#ecfdf5; }
   [data-theme="dark"] { --brand:#22d3ee; --brand-soft:#0c2a31; --bg:#0b1220; --card:#111a2c; --text:#e6edf7; --muted:#9fb0c7; --faint:#7c8aa0; --border:#1e293b; --shadow:rgba(0,0,0,.45); --ok:#34d399; --ok-bg:#0c2a22; }
@@ -78,25 +78,68 @@
 <header><div class="header-inner">
   <a class="logo" href="__HOME_HREF__">💵 CalcFin</a>
   <nav class="nav-links">
-    <a href="__PRIVACY_HREF__">Privacy</a><a href="__ABOUT_HREF__">About</a>
+    <a href="__PRIVACY_HREF__">Confidentialité</a><a href="__ABOUT_HREF__">À propos</a>
     <button id="themeBtn" title="Toggle dark mode" aria-label="Toggle dark mode">
       <svg class="icon-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
       <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
     </button>
-    <div class="lang"><button id="langBtn" aria-haspopup="true" aria-expanded="false">English<svg class="chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button><div class="lang-menu"><a href="index.html" class="cur">English</a><a href="index-de.html">Deutsch</a><a href="index-fr.html">Français</a><a href="index-es.html">Español</a></div></div>
+    <div class="lang"><button id="langBtn" aria-haspopup="true" aria-expanded="false">Français<svg class="chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button><div class="lang-menu"><a href="savings-goal.html">English</a><a href="savings-goal-de.html">Deutsch</a><a href="savings-goal-fr.html" class="cur">Français</a><a href="savings-goal-es.html">Español</a></div></div>
   </nav>
 </div></header>
 <main>
 
-  <h1>Free Financial Calculators</h1>
-  <p class="sub">Fast, private calculators that run <b>entirely in your browser</b> — your numbers never leave your device. Every page shows the exact formula.</p>
-  <div class="grid"><a href="/compound-interest.html">Compound interest<span>See how a lump sum plus regular monthly contributions grows with compound intere…</span></a><a href="/loan-payment.html">Loan payment<span>Enter a loan amount, annual rate and term to get the fixed monthly payment, tota…</span></a><a href="/mortgage-payment.html">Mortgage payment<span>A mortgage payment is more than principal and interest. Add tax, insurance and H…</span></a><a href="/savings-goal.html">Savings goal<span>Have a target and a deadline? This tells you the exact monthly contribution need…</span></a><a href="/credit-card-payoff.html">Credit card payoff<span>Fixed monthly payments on credit card debt: see exactly how many months until yo…</span></a><a href="/inflation.html">Inflation<span>Inflation quietly shrinks purchasing power. Enter an amount, an average inflatio…</span></a><a href="/roi.html">ROI<span>Simple ROI tells you how much you made; annualized ROI tells you how fast — and …</span></a><a href="/retirement.html">Retirement savings<span>Project your nest egg at retirement from what you have, what you add each month …</span></a></div>
-  <h2>No signup. No data collection. Just math.</h2>
-  <p>Every calculator on CalcFin runs locally using JavaScript — your inputs are processed on your own device and never sent to any server. Each page also documents the exact formula used, so you can verify the math instead of trusting a black box.</p>
-  <p>Results are estimates for planning and education, not financial advice.</p>
+  <h1>Calculateur d'objectif d'épargne</h1>
+  <p class="sub">Vous avez un objectif et une échéance ? Voici le versement mensuel exact nécessaire, en supposant des intérêts composés.</p>
+  <div class="calc">
+    <label for="goal">Objectif ($)</label>
+    <input type="number" step="any" id="goal" value="50000"><label for="years">Durée (années)</label>
+    <input type="number" step="any" id="years" value="5"><label for="rate">Rendement annuel (%)</label>
+    <input type="number" step="any" id="rate" value="5"><label for="current">Déjà épargné ($)</label>
+    <input type="number" step="any" id="current" value="5000">
+    <button class="btn" onclick="calc()">Calculer</button>
+    <div class="result" id="res">
+      <div class="lbl" id="outLbl"></div>
+      <div class="big" id="outBig"></div>
+      <table id="outTable"></table>
+    </div>
+  </div>
+  <h2>Comment ça marche</h2>
+  <div class="formula">V = (Objectif − VF_actuel) · r / ((1+r)^n − 1)   où r = taux mensuel, n = mois</div>
+  <ul><li>D'abord, votre épargne actuelle est projetée avec intérêts composés jusqu'à l'échéance.</li><li>L'écart entre cette valeur future et l'objectif est comblé par les versements mensuels.</li><li>Un rendement supérieur réduit la mensualité — mais ne planifiez pas sur des taux incertains.</li></ul>
+  <h2>FAQ</h2>
+  <p><b>Et si je ne peux pas assumer la mensualité ?</b> Prolongez l'échéance, réduisez l'objectif ou cherchez un meilleur rendement — testez chaque levier instantanément.</p><p><b>L'épargne est-elle mensuelle ou annuelle ?</b> Mensuelle, en fin de mois.</p><p><b>Utilisable pour un apport immobilier ?</b> Oui — c'est un usage très courant.</p>
+  <h2>Calculateurs liés</h2>
+  <div class="grid"><a href="/compound-interest-fr.html">Calculateur d'intérêts composés</a><a href="/loan-payment-fr.html">Calculateur de mensualités</a><a href="/mortgage-payment-fr.html">Calculateur de mensualité immobilière</a><a href="/credit-card-payoff-fr.html">Calculateur de remboursement de carte</a><a href="/inflation-fr.html">Calculateur d'inflation</a><a href="/roi-fr.html">Calculateur de ROI</a><a href="/retirement-fr.html">Calculateur d'épargne retraite</a></div>
+  <script>
+window.__LBL__ = {"main": "Épargne mensuelle requise", "rows": {"fv": "Valeur future de l'épargne actuelle", "gap": "Écart à combler", "contrib": "Versements totaux"}};
+const F = v => '$' + Number(v).toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
+function out(mainKey, big, rows) {
+  const L = window.__LBL__;
+  const label = mainKey === '__main__' ? L.main : (L.rows[mainKey] || mainKey);
+  document.getElementById('outLbl').textContent = label;
+  document.getElementById('outBig').textContent = big;
+  const tb = document.getElementById('outTable'); tb.innerHTML = '';
+  (rows || []).forEach(function (r) { tb.innerHTML += '<tr><td>' + (L.rows[r[0]] || r[0]) + '</td><td>' + r[1] + '</td></tr>'; });
+  document.getElementById('res').style.display = 'block';
+}
+function calc() {
+  const g = function (id) { return document.getElementById(id); };
+const goal = g('goal');
+  const years = g('years');
+  const rate = g('rate');
+  const current = g('current');
+  try {
+const g=+goal.value, r=+rate.value/100/12, n=+years.value*12, cur=+current.value;
+const fvCur=cur*Math.pow(1+r, n);
+const gap=Math.max(0, g-fvCur);
+const pmt=r===0 ? gap/n : gap*r/(Math.pow(1+r,n)-1);
+out('__main__', F(pmt), [[L.rows.fv, F(fvCur)], [L.rows.gap, F(gap)], [L.rows.contrib, F(pmt*n)]]);
+  } catch (e) { document.getElementById('outLbl').textContent = 'Error: ' + e.message; document.getElementById('res').style.display = 'block'; }
+}
+</script>
 
 </main>
-<footer>CalcFin — free financial calculators. Results are estimates, not financial advice. © 2026</footer>
+<footer>CalcFin — calculateurs financiers gratuits. Les résultats sont des estimations, pas des conseils financiers. © 2026</footer>
 <script>
 try {
 const themeBtn = document.getElementById('themeBtn');

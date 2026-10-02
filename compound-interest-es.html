@@ -4,22 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>try{const t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='dark';}catch(e){}</script>
-<title>Compound Interest Calculator — With Monthly Contributions | CalcFin</title>
-<meta name="description" content="Free compound interest calculator with monthly contributions. See how your money grows over time — formula explained, runs in your browser.">
-<link rel="canonical" href="https://calcfin-vpg.pages.dev/compound-interest">
+<title>Calculadora de interés compuesto — con aportes mensuales | CalcFin</title>
+<meta name="description" content="Calculadora de interés compuesto gratis con aportes mensuales. Mira cómo crece tu dinero — fórmula explicada, en tu navegador.">
+<link rel="canonical" href="https://calcfin-vpg.pages.dev/compound-interest-es">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CalcFin">
-<meta property="og:title" content="Compound Interest Calculator — With Monthly Contributions | CalcFin">
-<meta property="og:description" content="Free compound interest calculator with monthly contributions. See how your money grows over time — formula explained, runs in your browser.">
-<meta property="og:url" content="https://calcfin-vpg.pages.dev/compound-interest">
+<meta property="og:title" content="Calculadora de interés compuesto — con aportes mensuales | CalcFin">
+<meta property="og:description" content="Calculadora de interés compuesto gratis con aportes mensuales. Mira cómo crece tu dinero — fórmula explicada, en tu navegador.">
+<meta property="og:url" content="https://calcfin-vpg.pages.dev/compound-interest-es">
 <meta name="twitter:card" content="summary">
   <link rel="alternate" hreflang="en" href="https://calcfin-vpg.pages.dev/compound-interest">
   <link rel="alternate" hreflang="de" href="https://calcfin-vpg.pages.dev/compound-interest-de">
   <link rel="alternate" hreflang="fr" href="https://calcfin-vpg.pages.dev/compound-interest-fr">
   <link rel="alternate" hreflang="es" href="https://calcfin-vpg.pages.dev/compound-interest-es">
   <link rel="alternate" hreflang="x-default" href="https://calcfin-vpg.pages.dev/compound-interest">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CalcFin — Compound Interest Calculator","url":"https://calcfin-vpg.pages.dev/compound-interest","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free compound interest calculator with monthly contributions. See how your money grows over time — formula explained, runs in your browser."}</script>
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is the contribution added at the start or end of each month?","acceptedAnswer":{"@type":"Answer","text":"This calculator assumes contributions are made at the start of each month (annuity due), which is why the contribution formula includes the extra (1+r/n) factor."}},{"@type":"Question","name":"Does it account for taxes or inflation?","acceptedAnswer":{"@type":"Answer","text":"No — results are nominal. For real purchasing power, run the result through the Inflation Calculator."}},{"@type":"Question","name":"What rate should I use?","acceptedAnswer":{"@type":"Answer","text":"Historical US stock market returns average roughly 7–10% per year before inflation, but past performance never guarantees future results."}}]}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CalcFin — Calculadora de interés compuesto","url":"https://calcfin-vpg.pages.dev/compound-interest-es","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Calculadora de interés compuesto gratis con aportes mensuales. Mira cómo crece tu dinero — fórmula explicada, en tu navegador."}</script>
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿El aporte se hace al inicio o al final del mes?","acceptedAnswer":{"@type":"Answer","text":"Esta calculadora asume aportes al inicio de cada mes (anualidad anticipada) — por eso la fórmula incluye el factor (1+r/n) extra."}},{"@type":"Question","name":"¿Incluye impuestos o inflación?","acceptedAnswer":{"@type":"Answer","text":"No — los resultados son nominales. Para poder adquisitivo real, usa la Calculadora de inflación."}},{"@type":"Question","name":"¿Qué tasa debería usar?","acceptedAnswer":{"@type":"Answer","text":"El mercado bursátil de EE. UU. rindió históricamente ~7–10 % anual antes de inflación — pero el pasado no garantiza el futuro."}}]}
 <style>
   :root { --brand:#0e7490; --brand-soft:#ecfeff; --bg:#f8fafc; --card:#fff; --text:#0f172a; --muted:#475569; --faint:#64748b; --border:#e2e8f0; --shadow:rgba(0,0,0,.07); --ok:#067647; --ok-bg:#ecfdf5; }
   [data-theme="dark"] { --brand:#22d3ee; --brand-soft:#0c2a31; --bg:#0b1220; --card:#111a2c; --text:#e6edf7; --muted:#9fb0c7; --faint:#7c8aa0; --border:#1e293b; --shadow:rgba(0,0,0,.45); --ok:#34d399; --ok-bg:#0c2a22; }
@@ -78,40 +78,40 @@
 <header><div class="header-inner">
   <a class="logo" href="__HOME_HREF__">💵 CalcFin</a>
   <nav class="nav-links">
-    <a href="__PRIVACY_HREF__">Privacy</a><a href="__ABOUT_HREF__">About</a>
+    <a href="__PRIVACY_HREF__">Privacidad</a><a href="__ABOUT_HREF__">Acerca de</a>
     <button id="themeBtn" title="Toggle dark mode" aria-label="Toggle dark mode">
       <svg class="icon-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
       <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
     </button>
-    <div class="lang"><button id="langBtn" aria-haspopup="true" aria-expanded="false">English<svg class="chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button><div class="lang-menu"><a href="compound-interest.html" class="cur">English</a><a href="compound-interest-de.html">Deutsch</a><a href="compound-interest-fr.html">Français</a><a href="compound-interest-es.html">Español</a></div></div>
+    <div class="lang"><button id="langBtn" aria-haspopup="true" aria-expanded="false">Español<svg class="chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button><div class="lang-menu"><a href="compound-interest.html">English</a><a href="compound-interest-de.html">Deutsch</a><a href="compound-interest-fr.html">Français</a><a href="compound-interest-es.html" class="cur">Español</a></div></div>
   </nav>
 </div></header>
 <main>
 
-  <h1>Compound Interest Calculator</h1>
-  <p class="sub">See how a lump sum plus regular monthly contributions grows with compound interest. Adjust the rate and timeline to compare scenarios instantly.</p>
+  <h1>Calculadora de interés compuesto</h1>
+  <p class="sub">Mira cómo un capital inicial más aportes mensuales crece con interés compuesto. Ajusta la tasa y el plazo para comparar escenarios al instante.</p>
   <div class="calc">
-    <label for="principal">Initial amount ($)</label>
-    <input type="number" step="any" id="principal" value="10000"><label for="rate">Annual interest rate (%)</label>
-    <input type="number" step="any" id="rate" value="7"><label for="years">Years to grow</label>
-    <input type="number" step="any" id="years" value="10"><label for="monthly">Monthly contribution ($)</label>
+    <label for="principal">Capital inicial ($)</label>
+    <input type="number" step="any" id="principal" value="10000"><label for="rate">Tasa anual (%)</label>
+    <input type="number" step="any" id="rate" value="7"><label for="years">Años</label>
+    <input type="number" step="any" id="years" value="10"><label for="monthly">Aporte mensual ($)</label>
     <input type="number" step="any" id="monthly" value="200">
-    <button class="btn" onclick="calc()">Calculate</button>
+    <button class="btn" onclick="calc()">Calcular</button>
     <div class="result" id="res">
       <div class="lbl" id="outLbl"></div>
       <div class="big" id="outBig"></div>
       <table id="outTable"></table>
     </div>
   </div>
-  <h2>How it works</h2>
-  <div class="formula">FV = P(1+r/n)^(nt) + PMT · [ ((1+r/n)^(nt) − 1) / (r/n) ] × (1+r/n)</div>
-  <ul><li>Compound interest pays interest on your interest. Compounding monthly at an annual rate r means each month grows your balance by r/12.</li><li>The first term is your initial lump sum growing for the whole period; the second is the future value of every monthly contribution.</li><li>Time matters more than rate: doubling years roughly squares the growth multiple on the lump sum.</li></ul>
-  <h2>FAQ</h2>
-  <p><b>Is the contribution added at the start or end of each month?</b> This calculator assumes contributions are made at the start of each month (annuity due), which is why the contribution formula includes the extra (1+r/n) factor.</p><p><b>Does it account for taxes or inflation?</b> No — results are nominal. For real purchasing power, run the result through the Inflation Calculator.</p><p><b>What rate should I use?</b> Historical US stock market returns average roughly 7–10% per year before inflation, but past performance never guarantees future results.</p>
-  <h2>Related calculators</h2>
-  <div class="grid"><a href="/loan-payment.html">Loan payment</a><a href="/mortgage-payment.html">Mortgage payment</a><a href="/savings-goal.html">Savings goal</a><a href="/credit-card-payoff.html">Credit card payoff</a><a href="/inflation.html">Inflation</a><a href="/roi.html">ROI</a><a href="/retirement.html">Retirement savings</a></div>
+  <h2>Cómo funciona</h2>
+  <div class="formula">VF = C(1+r/n)^(nt) + A · [ ((1+r/n)^(nt) − 1) / (r/n) ] × (1+r/n)</div>
+  <ul><li>El interés compuesto paga intereses sobre los intereses. Con capitalización mensual a una tasa anual r, el saldo crece cada mes r/12.</li><li>El primer término es tu capital inicial creciendo todo el período; el segundo es el valor futuro de cada aporte mensual.</li><li>El tiempo importa más que la tasa: duplicar los años eleva mucho el múltiplo de crecimiento del capital.</li></ul>
+  <h2>Preguntas frecuentes</h2>
+  <p><b>¿El aporte se hace al inicio o al final del mes?</b> Esta calculadora asume aportes al inicio de cada mes (anualidad anticipada) — por eso la fórmula incluye el factor (1+r/n) extra.</p><p><b>¿Incluye impuestos o inflación?</b> No — los resultados son nominales. Para poder adquisitivo real, usa la Calculadora de inflación.</p><p><b>¿Qué tasa debería usar?</b> El mercado bursátil de EE. UU. rindió históricamente ~7–10 % anual antes de inflación — pero el pasado no garantiza el futuro.</p>
+  <h2>Calculadoras relacionadas</h2>
+  <div class="grid"><a href="/loan-payment-es.html">Calculadora de cuotas de préstamo</a><a href="/mortgage-payment-es.html">Calculadora de hipoteca</a><a href="/savings-goal-es.html">Calculadora de meta de ahorro</a><a href="/credit-card-payoff-es.html">Calculadora para saldar tarjeta</a><a href="/inflation-es.html">Calculadora de inflación</a><a href="/roi-es.html">Calculadora de ROI</a><a href="/retirement-es.html">Calculadora de jubilación</a></div>
   <script>
-window.__LBL__ = {"main": "Future value", "rows": {"deposited": "Total deposited", "interest": "Interest earned", "multiple": "Growth multiple"}};
+window.__LBL__ = {"main": "Valor futuro", "rows": {"deposited": "Total aportado", "interest": "Intereses ganados", "multiple": "Múltiplo de crecimiento"}};
 const F = v => '$' + Number(v).toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
 function out(mainKey, big, rows) {
   const L = window.__LBL__;
@@ -139,7 +139,7 @@ out('__main__', F(fvP+fvM), [[L.rows.deposited, F(total)], [L.rows.interest, F(i
 </script>
 
 </main>
-<footer>CalcFin — free financial calculators. Results are estimates, not financial advice. © 2026</footer>
+<footer>CalcFin — calculadoras financieras gratis. Los resultados son estimaciones, no asesoría financiera. © 2026</footer>
 <script>
 try {
 const themeBtn = document.getElementById('themeBtn');

@@ -4,22 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>try{const t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='dark';}catch(e){}</script>
-<title>Compound Interest Calculator — With Monthly Contributions | CalcFin</title>
-<meta name="description" content="Free compound interest calculator with monthly contributions. See how your money grows over time — formula explained, runs in your browser.">
-<link rel="canonical" href="https://calcfin-vpg.pages.dev/compound-interest">
+<title>Calculateur d'épargne retraite — assez pour la retraite ? | CalcFin</title>
+<meta name="description" content="Projetez votre épargne retraite à partir du solde actuel, des versements, de l'abondement employeur et du rendement. Gratuit et privé.">
+<link rel="canonical" href="https://calcfin-vpg.pages.dev/retirement-fr">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CalcFin">
-<meta property="og:title" content="Compound Interest Calculator — With Monthly Contributions | CalcFin">
-<meta property="og:description" content="Free compound interest calculator with monthly contributions. See how your money grows over time — formula explained, runs in your browser.">
-<meta property="og:url" content="https://calcfin-vpg.pages.dev/compound-interest">
+<meta property="og:title" content="Calculateur d'épargne retraite — assez pour la retraite ? | CalcFin">
+<meta property="og:description" content="Projetez votre épargne retraite à partir du solde actuel, des versements, de l'abondement employeur et du rendement. Gratuit et privé.">
+<meta property="og:url" content="https://calcfin-vpg.pages.dev/retirement-fr">
 <meta name="twitter:card" content="summary">
-  <link rel="alternate" hreflang="en" href="https://calcfin-vpg.pages.dev/compound-interest">
-  <link rel="alternate" hreflang="de" href="https://calcfin-vpg.pages.dev/compound-interest-de">
-  <link rel="alternate" hreflang="fr" href="https://calcfin-vpg.pages.dev/compound-interest-fr">
-  <link rel="alternate" hreflang="es" href="https://calcfin-vpg.pages.dev/compound-interest-es">
-  <link rel="alternate" hreflang="x-default" href="https://calcfin-vpg.pages.dev/compound-interest">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CalcFin — Compound Interest Calculator","url":"https://calcfin-vpg.pages.dev/compound-interest","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free compound interest calculator with monthly contributions. See how your money grows over time — formula explained, runs in your browser."}</script>
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is the contribution added at the start or end of each month?","acceptedAnswer":{"@type":"Answer","text":"This calculator assumes contributions are made at the start of each month (annuity due), which is why the contribution formula includes the extra (1+r/n) factor."}},{"@type":"Question","name":"Does it account for taxes or inflation?","acceptedAnswer":{"@type":"Answer","text":"No — results are nominal. For real purchasing power, run the result through the Inflation Calculator."}},{"@type":"Question","name":"What rate should I use?","acceptedAnswer":{"@type":"Answer","text":"Historical US stock market returns average roughly 7–10% per year before inflation, but past performance never guarantees future results."}}]}
+  <link rel="alternate" hreflang="en" href="https://calcfin-vpg.pages.dev/retirement">
+  <link rel="alternate" hreflang="de" href="https://calcfin-vpg.pages.dev/retirement-de">
+  <link rel="alternate" hreflang="fr" href="https://calcfin-vpg.pages.dev/retirement-fr">
+  <link rel="alternate" hreflang="es" href="https://calcfin-vpg.pages.dev/retirement-es">
+  <link rel="alternate" hreflang="x-default" href="https://calcfin-vpg.pages.dev/retirement">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CalcFin — Calculateur d'épargne retraite","url":"https://calcfin-vpg.pages.dev/retirement-fr","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Projetez votre épargne retraite à partir du solde actuel, des versements, de l'abondement employeur et du rendement. Gratuit et privé."}</script>
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quel rendement supposer ?","acceptedAnswer":{"@type":"Answer","text":"Un portefeuille diversifié a historiquement rapporté 7–8 % nominal. Planification prudente : 5–6 %."}},{"@type":"Question","name":"Les retraites publiques sont-elles incluses ?","acceptedAnswer":{"@type":"Answer","text":"Non — il s'agit uniquement de vos investissements. Ajoutez les pensions attendues séparément."}},{"@type":"Question","name":"De combien ai-je besoin ?","acceptedAnswer":{"@type":"Answer","text":"Règle de départ courante : 25× vos dépenses annuelles prévues (« règle des 4 % »), mais cela varie beaucoup."}}]}
 <style>
   :root { --brand:#0e7490; --brand-soft:#ecfeff; --bg:#f8fafc; --card:#fff; --text:#0f172a; --muted:#475569; --faint:#64748b; --border:#e2e8f0; --shadow:rgba(0,0,0,.07); --ok:#067647; --ok-bg:#ecfdf5; }
   [data-theme="dark"] { --brand:#22d3ee; --brand-soft:#0c2a31; --bg:#0b1220; --card:#111a2c; --text:#e6edf7; --muted:#9fb0c7; --faint:#7c8aa0; --border:#1e293b; --shadow:rgba(0,0,0,.45); --ok:#34d399; --ok-bg:#0c2a22; }
@@ -78,40 +78,41 @@
 <header><div class="header-inner">
   <a class="logo" href="__HOME_HREF__">💵 CalcFin</a>
   <nav class="nav-links">
-    <a href="__PRIVACY_HREF__">Privacy</a><a href="__ABOUT_HREF__">About</a>
+    <a href="__PRIVACY_HREF__">Confidentialité</a><a href="__ABOUT_HREF__">À propos</a>
     <button id="themeBtn" title="Toggle dark mode" aria-label="Toggle dark mode">
       <svg class="icon-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
       <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
     </button>
-    <div class="lang"><button id="langBtn" aria-haspopup="true" aria-expanded="false">English<svg class="chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button><div class="lang-menu"><a href="compound-interest.html" class="cur">English</a><a href="compound-interest-de.html">Deutsch</a><a href="compound-interest-fr.html">Français</a><a href="compound-interest-es.html">Español</a></div></div>
+    <div class="lang"><button id="langBtn" aria-haspopup="true" aria-expanded="false">Français<svg class="chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button><div class="lang-menu"><a href="retirement.html">English</a><a href="retirement-de.html">Deutsch</a><a href="retirement-fr.html" class="cur">Français</a><a href="retirement-es.html">Español</a></div></div>
   </nav>
 </div></header>
 <main>
 
-  <h1>Compound Interest Calculator</h1>
-  <p class="sub">See how a lump sum plus regular monthly contributions grows with compound interest. Adjust the rate and timeline to compare scenarios instantly.</p>
+  <h1>Calculateur d'épargne retraite</h1>
+  <p class="sub">Projetez votre capital à la retraite à partir de ce que vous avez, de ce que vous ajoutez chaque mois (abondement employeur inclus) et d'un rendement supposé.</p>
   <div class="calc">
-    <label for="principal">Initial amount ($)</label>
-    <input type="number" step="any" id="principal" value="10000"><label for="rate">Annual interest rate (%)</label>
-    <input type="number" step="any" id="rate" value="7"><label for="years">Years to grow</label>
-    <input type="number" step="any" id="years" value="10"><label for="monthly">Monthly contribution ($)</label>
-    <input type="number" step="any" id="monthly" value="200">
-    <button class="btn" onclick="calc()">Calculate</button>
+    <label for="current">Épargne actuelle ($)</label>
+    <input type="number" step="any" id="current" value="60000"><label for="monthly">Versement mensuel ($)</label>
+    <input type="number" step="any" id="monthly" value="600"><label for="match">Abondement employeur ($)</label>
+    <input type="number" step="any" id="match" value="150"><label for="rate">Rendement annuel (%)</label>
+    <input type="number" step="any" id="rate" value="7"><label for="years">Années avant la retraite</label>
+    <input type="number" step="any" id="years" value="25">
+    <button class="btn" onclick="calc()">Calculer</button>
     <div class="result" id="res">
       <div class="lbl" id="outLbl"></div>
       <div class="big" id="outBig"></div>
       <table id="outTable"></table>
     </div>
   </div>
-  <h2>How it works</h2>
-  <div class="formula">FV = P(1+r/n)^(nt) + PMT · [ ((1+r/n)^(nt) − 1) / (r/n) ] × (1+r/n)</div>
-  <ul><li>Compound interest pays interest on your interest. Compounding monthly at an annual rate r means each month grows your balance by r/12.</li><li>The first term is your initial lump sum growing for the whole period; the second is the future value of every monthly contribution.</li><li>Time matters more than rate: doubling years roughly squares the growth multiple on the lump sum.</li></ul>
+  <h2>Comment ça marche</h2>
+  <div class="formula">VF = Actuel·(1+r/n)^(nt) + Mensuel·[ ((1+r/n)^(nt) − 1) / (r/n) ] × (1+r/n)</div>
+  <ul><li>L'abondement employeur est de l'argent gratuit — incluez-le dans votre versement ; sur une carrière, cela peut représenter des dizaines de milliers.</li><li>La dernière décennie de capitalisation apporte généralement les plus gros montants — commencer tôt compte plus que verser plus.</li><li>Le résultat est nominal. Passez-le au calculateur d'inflation pour le voir en pouvoir d'achat actuel.</li></ul>
   <h2>FAQ</h2>
-  <p><b>Is the contribution added at the start or end of each month?</b> This calculator assumes contributions are made at the start of each month (annuity due), which is why the contribution formula includes the extra (1+r/n) factor.</p><p><b>Does it account for taxes or inflation?</b> No — results are nominal. For real purchasing power, run the result through the Inflation Calculator.</p><p><b>What rate should I use?</b> Historical US stock market returns average roughly 7–10% per year before inflation, but past performance never guarantees future results.</p>
-  <h2>Related calculators</h2>
-  <div class="grid"><a href="/loan-payment.html">Loan payment</a><a href="/mortgage-payment.html">Mortgage payment</a><a href="/savings-goal.html">Savings goal</a><a href="/credit-card-payoff.html">Credit card payoff</a><a href="/inflation.html">Inflation</a><a href="/roi.html">ROI</a><a href="/retirement.html">Retirement savings</a></div>
+  <p><b>Quel rendement supposer ?</b> Un portefeuille diversifié a historiquement rapporté 7–8 % nominal. Planification prudente : 5–6 %.</p><p><b>Les retraites publiques sont-elles incluses ?</b> Non — il s'agit uniquement de vos investissements. Ajoutez les pensions attendues séparément.</p><p><b>De combien ai-je besoin ?</b> Règle de départ courante : 25× vos dépenses annuelles prévues (« règle des 4 % »), mais cela varie beaucoup.</p>
+  <h2>Calculateurs liés</h2>
+  <div class="grid"><a href="/compound-interest-fr.html">Calculateur d'intérêts composés</a><a href="/loan-payment-fr.html">Calculateur de mensualités</a><a href="/mortgage-payment-fr.html">Calculateur de mensualité immobilière</a><a href="/savings-goal-fr.html">Calculateur d'objectif d'épargne</a><a href="/credit-card-payoff-fr.html">Calculateur de remboursement de carte</a><a href="/inflation-fr.html">Calculateur d'inflation</a><a href="/roi-fr.html">Calculateur de ROI</a></div>
   <script>
-window.__LBL__ = {"main": "Future value", "rows": {"deposited": "Total deposited", "interest": "Interest earned", "multiple": "Growth multiple"}};
+window.__LBL__ = {"main": "Épargne retraite projetée", "rows": {"fv": "Depuis l'épargne actuelle", "fvm": "Depuis les versements", "contrib": "Versements totaux", "growth": "Intérêts gagnés"}};
 const F = v => '$' + Number(v).toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
 function out(mainKey, big, rows) {
   const L = window.__LBL__;
@@ -124,22 +125,22 @@ function out(mainKey, big, rows) {
 }
 function calc() {
   const g = function (id) { return document.getElementById(id); };
-const principal = g('principal');
+const current = g('current');
+  const monthly = g('monthly');
+  const match = g('match');
   const rate = g('rate');
   const years = g('years');
-  const monthly = g('monthly');
   try {
-const p=+principal.value, r=+rate.value/100, y=+years.value, m=+monthly.value;
+const c=+current.value, m=+monthly.value+ +match.value, r=+rate.value/100, y=+years.value;
 const n=12, g=Math.pow(1+r/n, n*y);
-const fvP=p*g, fvM=m*((g-1)/(r/n))*(1+r/n);
-const total=p+m*12*y, interest=fvP+fvM-total;
-out('__main__', F(fvP+fvM), [[L.rows.deposited, F(total)], [L.rows.interest, F(interest)], [L.rows.multiple, (fvP+fvM/Math.max(total,1)).toFixed(2)+'x']]);
+const fv=c*g, fvm=m*((g-1)/(r/n))*(1+r/n), total=fv+fvm;
+out('__main__', F(total), [[L.rows.fv, F(fv)], [L.rows.fvm, F(fvm)], [L.rows.contrib, F(c+m*12*y)], [L.rows.growth, F(total-c-m*12*y)]]);
   } catch (e) { document.getElementById('outLbl').textContent = 'Error: ' + e.message; document.getElementById('res').style.display = 'block'; }
 }
 </script>
 
 </main>
-<footer>CalcFin — free financial calculators. Results are estimates, not financial advice. © 2026</footer>
+<footer>CalcFin — calculateurs financiers gratuits. Les résultats sont des estimations, pas des conseils financiers. © 2026</footer>
 <script>
 try {
 const themeBtn = document.getElementById('themeBtn');

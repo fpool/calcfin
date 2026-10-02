@@ -4,22 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>try{const t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='dark';}catch(e){}</script>
-<title>Free Financial Calculators — Loans, Mortgage, Savings, Interest | CalcFin</title>
-<meta name="description" content="Free online financial calculators: compound interest, loan payments, mortgage, savings goals, credit card payoff, inflation, ROI and retirement. Private, no signup.">
-<link rel="canonical" href="https://calcfin-vpg.pages.dev/">
+<title>Calculadora de hipoteca — cuota, impuesto y seguro | CalcFin</title>
+<meta name="description" content="Estima tu cuota hipotecaria real incluyendo impuesto, seguro y comunidad. Gratis y privado.">
+<link rel="canonical" href="https://calcfin-vpg.pages.dev/mortgage-payment-es">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CalcFin">
-<meta property="og:title" content="Free Financial Calculators — Loans, Mortgage, Savings, Interest | CalcFin">
-<meta property="og:description" content="Free online financial calculators: compound interest, loan payments, mortgage, savings goals, credit card payoff, inflation, ROI and retirement. Private, no signup.">
-<meta property="og:url" content="https://calcfin-vpg.pages.dev/">
+<meta property="og:title" content="Calculadora de hipoteca — cuota, impuesto y seguro | CalcFin">
+<meta property="og:description" content="Estima tu cuota hipotecaria real incluyendo impuesto, seguro y comunidad. Gratis y privado.">
+<meta property="og:url" content="https://calcfin-vpg.pages.dev/mortgage-payment-es">
 <meta name="twitter:card" content="summary">
-  <link rel="alternate" hreflang="en" href="https://calcfin-vpg.pages.dev/index">
-  <link rel="alternate" hreflang="de" href="https://calcfin-vpg.pages.dev/index-de">
-  <link rel="alternate" hreflang="fr" href="https://calcfin-vpg.pages.dev/index-fr">
-  <link rel="alternate" hreflang="es" href="https://calcfin-vpg.pages.dev/index-es">
-  <link rel="alternate" hreflang="x-default" href="https://calcfin-vpg.pages.dev/index">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CalcFin","url":"https://calcfin-vpg.pages.dev/","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free online financial calculators: compound interest, loan payments, mortgage, savings goals, credit card payoff, inflation, ROI and retirement. Private, no signup."}</script>
-
+  <link rel="alternate" hreflang="en" href="https://calcfin-vpg.pages.dev/mortgage-payment">
+  <link rel="alternate" hreflang="de" href="https://calcfin-vpg.pages.dev/mortgage-payment-de">
+  <link rel="alternate" hreflang="fr" href="https://calcfin-vpg.pages.dev/mortgage-payment-fr">
+  <link rel="alternate" hreflang="es" href="https://calcfin-vpg.pages.dev/mortgage-payment-es">
+  <link rel="alternate" hreflang="x-default" href="https://calcfin-vpg.pages.dev/mortgage-payment">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CalcFin — Calculadora de hipoteca","url":"https://calcfin-vpg.pages.dev/mortgage-payment-es","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Estima tu cuota hipotecaria real incluyendo impuesto, seguro y comunidad. Gratis y privado."}</script>
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Incluye el PMI?","acceptedAnswer":{"@type":"Answer","text":"No — añádelo manualmente en el campo de comunidad si tu entrada es menor al 20 %."}},{"@type":"Question","name":"¿El impuesto es exacto para mi zona?","acceptedAnswer":{"@type":"Answer","text":"Las tasas varían de menos de 0,5 % a más de 2 % del valor al año — revisa tu tasa local."}},{"@type":"Question","name":"¿15 o 30 años?","acceptedAnswer":{"@type":"Answer","text":"15 años: cuota más alta pero mucho menos interés total — compara ambos escenarios."}}]}
 <style>
   :root { --brand:#0e7490; --brand-soft:#ecfeff; --bg:#f8fafc; --card:#fff; --text:#0f172a; --muted:#475569; --faint:#64748b; --border:#e2e8f0; --shadow:rgba(0,0,0,.07); --ok:#067647; --ok-bg:#ecfdf5; }
   [data-theme="dark"] { --brand:#22d3ee; --brand-soft:#0c2a31; --bg:#0b1220; --card:#111a2c; --text:#e6edf7; --muted:#9fb0c7; --faint:#7c8aa0; --border:#1e293b; --shadow:rgba(0,0,0,.45); --ok:#34d399; --ok-bg:#0c2a22; }
@@ -78,25 +78,74 @@
 <header><div class="header-inner">
   <a class="logo" href="__HOME_HREF__">💵 CalcFin</a>
   <nav class="nav-links">
-    <a href="__PRIVACY_HREF__">Privacy</a><a href="__ABOUT_HREF__">About</a>
+    <a href="__PRIVACY_HREF__">Privacidad</a><a href="__ABOUT_HREF__">Acerca de</a>
     <button id="themeBtn" title="Toggle dark mode" aria-label="Toggle dark mode">
       <svg class="icon-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
       <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
     </button>
-    <div class="lang"><button id="langBtn" aria-haspopup="true" aria-expanded="false">English<svg class="chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button><div class="lang-menu"><a href="index.html" class="cur">English</a><a href="index-de.html">Deutsch</a><a href="index-fr.html">Français</a><a href="index-es.html">Español</a></div></div>
+    <div class="lang"><button id="langBtn" aria-haspopup="true" aria-expanded="false">Español<svg class="chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button><div class="lang-menu"><a href="mortgage-payment.html">English</a><a href="mortgage-payment-de.html">Deutsch</a><a href="mortgage-payment-fr.html">Français</a><a href="mortgage-payment-es.html" class="cur">Español</a></div></div>
   </nav>
 </div></header>
 <main>
 
-  <h1>Free Financial Calculators</h1>
-  <p class="sub">Fast, private calculators that run <b>entirely in your browser</b> — your numbers never leave your device. Every page shows the exact formula.</p>
-  <div class="grid"><a href="/compound-interest.html">Compound interest<span>See how a lump sum plus regular monthly contributions grows with compound intere…</span></a><a href="/loan-payment.html">Loan payment<span>Enter a loan amount, annual rate and term to get the fixed monthly payment, tota…</span></a><a href="/mortgage-payment.html">Mortgage payment<span>A mortgage payment is more than principal and interest. Add tax, insurance and H…</span></a><a href="/savings-goal.html">Savings goal<span>Have a target and a deadline? This tells you the exact monthly contribution need…</span></a><a href="/credit-card-payoff.html">Credit card payoff<span>Fixed monthly payments on credit card debt: see exactly how many months until yo…</span></a><a href="/inflation.html">Inflation<span>Inflation quietly shrinks purchasing power. Enter an amount, an average inflatio…</span></a><a href="/roi.html">ROI<span>Simple ROI tells you how much you made; annualized ROI tells you how fast — and …</span></a><a href="/retirement.html">Retirement savings<span>Project your nest egg at retirement from what you have, what you add each month …</span></a></div>
-  <h2>No signup. No data collection. Just math.</h2>
-  <p>Every calculator on CalcFin runs locally using JavaScript — your inputs are processed on your own device and never sent to any server. Each page also documents the exact formula used, so you can verify the math instead of trusting a black box.</p>
-  <p>Results are estimates for planning and education, not financial advice.</p>
+  <h1>Calculadora de hipoteca</h1>
+  <p class="sub">Una cuota hipotecaria es más que capital e intereses. Añade impuesto, seguro y comunidad para ver lo que realmente sale de tu cuenta cada mes.</p>
+  <div class="calc">
+    <label for="price">Precio de la vivienda ($)</label>
+    <input type="number" step="any" id="price" value="400000"><label for="down">Entrada ($)</label>
+    <input type="number" step="any" id="down" value="80000"><label for="rate">Tasa (%)</label>
+    <input type="number" step="any" id="rate" value="6.2"><label for="years">Plazo (años)</label>
+    <input type="number" step="any" id="years" value="30"><label for="tax">Impuesto anual ($)</label>
+    <input type="number" step="any" id="tax" value="4200"><label for="ins">Seguro anual ($)</label>
+    <input type="number" step="any" id="ins" value="1500"><label for="hoa">Comunidad mensual ($)</label>
+    <input type="number" step="any" id="hoa" value="0">
+    <button class="btn" onclick="calc()">Calcular</button>
+    <div class="result" id="res">
+      <div class="lbl" id="outLbl"></div>
+      <div class="big" id="outBig"></div>
+      <table id="outTable"></table>
+    </div>
+  </div>
+  <h2>Cómo funciona</h2>
+  <div class="formula">Cuota = C+I + (Impuesto/12) + (Seguro/12) + Comunidad</div>
+  <ul><li>Los bancos citan solo capital e intereses, pero la cuota real incluye impuestos, seguro y comunidad escrowados.</li><li>Regla común: presupuesta 1–2 % del valor de la vivienda al año en impuestos y seguro, aunque varía mucho por región.</li><li>Un 20 % de entrada suele eliminar el seguro PMI de la ecuación.</li></ul>
+  <h2>Preguntas frecuentes</h2>
+  <p><b>¿Incluye el PMI?</b> No — añádelo manualmente en el campo de comunidad si tu entrada es menor al 20 %.</p><p><b>¿El impuesto es exacto para mi zona?</b> Las tasas varían de menos de 0,5 % a más de 2 % del valor al año — revisa tu tasa local.</p><p><b>¿15 o 30 años?</b> 15 años: cuota más alta pero mucho menos interés total — compara ambos escenarios.</p>
+  <h2>Calculadoras relacionadas</h2>
+  <div class="grid"><a href="/compound-interest-es.html">Calculadora de interés compuesto</a><a href="/loan-payment-es.html">Calculadora de cuotas de préstamo</a><a href="/savings-goal-es.html">Calculadora de meta de ahorro</a><a href="/credit-card-payoff-es.html">Calculadora para saldar tarjeta</a><a href="/inflation-es.html">Calculadora de inflación</a><a href="/roi-es.html">Calculadora de ROI</a><a href="/retirement-es.html">Calculadora de jubilación</a></div>
+  <script>
+window.__LBL__ = {"main": "Cuota mensual total", "rows": {"pi": "Capital e intereses", "tax": "Impuesto (mensual)", "ins": "Seguro (mensual)", "hoa": "Comunidad (mensual)", "loan": "Monto del préstamo"}};
+const F = v => '$' + Number(v).toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
+function out(mainKey, big, rows) {
+  const L = window.__LBL__;
+  const label = mainKey === '__main__' ? L.main : (L.rows[mainKey] || mainKey);
+  document.getElementById('outLbl').textContent = label;
+  document.getElementById('outBig').textContent = big;
+  const tb = document.getElementById('outTable'); tb.innerHTML = '';
+  (rows || []).forEach(function (r) { tb.innerHTML += '<tr><td>' + (L.rows[r[0]] || r[0]) + '</td><td>' + r[1] + '</td></tr>'; });
+  document.getElementById('res').style.display = 'block';
+}
+function calc() {
+  const g = function (id) { return document.getElementById(id); };
+const price = g('price');
+  const down = g('down');
+  const rate = g('rate');
+  const years = g('years');
+  const tax = g('tax');
+  const ins = g('ins');
+  const hoa = g('hoa');
+  try {
+const p=+price.value-+down.value, r=+rate.value/100/12, n=+years.value*12;
+const pi=r===0 ? p/n : p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
+const tax=+tax.value/12, ins=+ins.value/12, hoa=+hoa.value;
+const total=pi+tax+ins+hoa;
+out('__main__', F(total), [[L.rows.pi, F(pi)], [L.rows.tax, F(tax)], [L.rows.ins, F(ins)], [L.rows.hoa, F(hoa)], [L.rows.loan, F(p)]]);
+  } catch (e) { document.getElementById('outLbl').textContent = 'Error: ' + e.message; document.getElementById('res').style.display = 'block'; }
+}
+</script>
 
 </main>
-<footer>CalcFin — free financial calculators. Results are estimates, not financial advice. © 2026</footer>
+<footer>CalcFin — calculadoras financieras gratis. Los resultados son estimaciones, no asesoría financiera. © 2026</footer>
 <script>
 try {
 const themeBtn = document.getElementById('themeBtn');
