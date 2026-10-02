@@ -115,7 +115,6 @@ if (langBox) {
 }
 } catch (e) {}
 </script>
-__SCRIPT__
 </body>
 </html>
 """
