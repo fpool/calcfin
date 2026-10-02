@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROI Calculator — Return on Investment with Annualized Rate | CalcFin</title>
+<meta name="description" content="Calculate return on investment (ROI) and the annualized return rate. Understand the real performance of any investment.">
+<link rel="canonical" href="https://calcfin-vpg.pages.devroi.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcFin">
+<meta property="og:title" content="ROI Calculator — Return on Investment with Annualized Rate | CalcFin">
+<meta property="og:description" content="Calculate return on investment (ROI) and the annualized return rate. Understand the real performance of any investment.">
+<meta property="og:url" content="https://calcfin-vpg.pages.devroi.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CalcFin — ROI Calculator","url":"https://calcfin-vpg.pages.devroi.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Calculate return on investment (ROI) and the annualized return rate. Understand the real performance of any investment."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a good ROI?","acceptedAnswer":{"@type":"Answer","text":"It depends on risk and timeframe. Long-run stock averages are ~10% nominal; savings accounts are far lower with far less risk."}},{"@type":"Question","name":"What's the difference between ROI and CAGR?","acceptedAnswer":{"@type":"Answer","text":"ROI is total percentage gain; CAGR spreads it per year. Only CAGR allows fair comparison across different holding periods."}},{"@type":"Question","name":"Can ROI be negative?","acceptedAnswer":{"@type":"Answer","text":"Yes — a final value below cost gives negative ROI and negative CAGR."}}]}</script>
+<style>
+  :root { --brand:#0e7490; --brand-soft:#ecfeff; --bg:#f8fafc; --card:#fff; --text:#0f172a; --muted:#475569; --faint:#64748b; --border:#e2e8f0; --shadow:rgba(0,0,0,.07); --ok:#067647; --ok-bg:#ecfdf5; }
+  [data-theme="dark"] { --brand:#22d3ee; --brand-soft:#0c2a31; --bg:#0b1220; --card:#111a2c; --text:#e6edf7; --muted:#9fb0c7; --faint:#7c8aa0; --border:#1e293b; --shadow:rgba(0,0,0,.45); --ok:#34d399; --ok-bg:#0c2a22; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif; color:var(--text); background:var(--bg); line-height:1.7; }
+  header { position:sticky; top:0; z-index:100; background:var(--card); border-bottom:1px solid var(--border); padding:14px 24px; box-shadow:0 1px 10px var(--shadow); }
+  .header-inner { max-width:960px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .logo { font-weight:800; font-size:20px; color:var(--brand); text-decoration:none; white-space:nowrap; }
+  .nav-links { display:flex; gap:20px; flex-wrap:wrap; }
+  .nav-links a { color:var(--muted); text-decoration:none; font-size:14px; white-space:nowrap; }
+  .nav-links a:hover { color:var(--brand); }
+  .nav-links a.on { color:var(--brand); font-weight:600; }
+  main { max-width:960px; margin:0 auto; padding:32px 20px 64px; }
+  h1 { font-size:28px; margin-bottom:8px; }
+  h2 { font-size:20px; margin:30px 0 10px; }
+  .sub { color:var(--muted); margin-bottom:24px; font-size:16px; }
+  .calc { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:22px; box-shadow:0 1px 4px var(--shadow); }
+  .calc label { display:block; font-size:13px; color:var(--muted); margin:12px 0 4px; font-weight:600; }
+  .calc input { width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); font-size:15px; }
+  .calc input:focus { outline:2px solid var(--brand); border-color:transparent; }
+  .btn { margin-top:16px; width:100%; background:var(--brand); color:#fff; border:0; border-radius:10px; padding:12px; font-size:16px; font-weight:700; cursor:pointer; }
+  .btn:hover { filter:brightness(1.1); }
+  .result { display:none; margin-top:18px; background:var(--ok-bg); border:1px solid transparent; border-radius:10px; padding:16px; }
+  .result .big { font-size:26px; font-weight:800; color:var(--ok); }
+  .result .lbl { font-size:13px; color:var(--muted); }
+  .result table { width:100%; margin-top:10px; font-size:14px; border-collapse:collapse; }
+  .result td { padding:4px 0; color:var(--muted); }
+  .result td:last-child { text-align:right; color:var(--text); font-weight:600; }
+  p, li { color:var(--muted); font-size:15px; margin-bottom:10px; }
+  ul { padding-left:22px; }
+  .formula { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:14px 18px; font-family:Consolas,monospace; font-size:14px; color:var(--text); margin:12px 0; overflow-x:auto; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:14px; margin-top:16px; }
+  .grid a { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; text-decoration:none; color:var(--text); font-weight:600; font-size:14px; box-shadow:0 1px 3px var(--shadow); }
+  .grid a:hover { border-color:var(--brand); color:var(--brand); }
+  .grid a span { display:block; font-weight:400; color:var(--muted); font-size:13px; margin-top:4px; }
+  footer { text-align:center; color:var(--faint); font-size:13px; padding:28px; border-top:1px solid var(--border); margin-top:40px; }
+  footer a { color:var(--faint); margin:0 10px; text-decoration:none; }
+</style>
+</head>
+<body>
+<header><div class="header-inner">
+  <a class="logo" href="/">💵 CalcFin</a>
+  <nav class="nav-links">
+    <a href="/">All calculators</a>
+    <a href="/compound-interest.html">Compound interest</a>
+    <a href="/loan-payment.html">Loan payment</a>
+    <a href="/mortgage-payment.html">Mortgage payment</a>
+    <a href="/savings-goal.html">Savings goal</a>
+    <a href="/credit-card-payoff.html">Credit card payoff</a>
+    <a href="/inflation.html">Inflation</a>
+    <a href="/roi.html" class="on">ROI</a>
+    <a href="/retirement.html">Retirement savings</a>
+    <a href="/privacy.html">Privacy</a><a href="/about.html">About</a>
+  </nav>
+</div></header>
+<main>
+
+  <h1>ROI Calculator</h1>
+  <p class="sub">Simple ROI tells you how much you made; annualized ROI tells you how fast — and that's the number you can actually compare across investments.</p>
+  <div class="calc">
+    <label for="cost">Amount invested ($)</label>
+    <input type="number" step="any" id="cost" value="10000"><label for="value">Final value ($)</label>
+    <input type="number" step="any" id="value" value="16000"><label for="years">Holding period (years)</label>
+    <input type="number" step="any" id="years" value="3">
+    <button class="btn" onclick="calc()">Calculate</button>
+    <div class="result" id="res">
+      <div class="lbl" id="outLbl"></div>
+      <div class="big" id="outBig"></div>
+      <table id="outTable"></table>
+    </div>
+  </div>
+  <h2>How it works</h2>
+  <div class="formula">ROI = (Final − Cost) / Cost × 100%      CAGR = (Final/Cost)^(1/years) − 1</div>
+  <ul><li>ROI alone can mislead: +50% in 1 year is excellent, +50% in 10 years is mediocre. The annualized figure (CAGR) makes different investments comparable.</li><li>CAGR is the constant yearly rate that would take you from cost to final value in the same period.</li><li>Remember to include fees, taxes and dividends in the final value for an honest picture.</li></ul>
+  <h2>FAQ</h2>
+  <p><b>What is a good ROI?</b> It depends on risk and timeframe. Long-run stock averages are ~10% nominal; savings accounts are far lower with far less risk.</p><p><b>What's the difference between ROI and CAGR?</b> ROI is total percentage gain; CAGR spreads it per year. Only CAGR allows fair comparison across different holding periods.</p><p><b>Can ROI be negative?</b> Yes — a final value below cost gives negative ROI and negative CAGR.</p>
+  <h2>Related calculators</h2>
+  <div class="grid"><a href="/compound-interest.html">Compound interest<span>Free calculator</span></a><a href="/loan-payment.html">Loan payment<span>Free calculator</span></a><a href="/mortgage-payment.html">Mortgage payment<span>Free calculator</span></a><a href="/savings-goal.html">Savings goal<span>Free calculator</span></a><a href="/credit-card-payoff.html">Credit card payoff<span>Free calculator</span></a><a href="/inflation.html">Inflation<span>Free calculator</span></a><a href="/retirement.html">Retirement savings<span>Free calculator</span></a></div>
+  <script>
+function out(label, big, rows) {
+  const fmt = v => typeof v === 'number' && !Number.isInteger(v) || String(label).toLowerCase().includes('payment') || String(label).toLowerCase().includes('saving')
+    ? '$' + Number(v).toLocaleString('en-US', {maximumFractionDigits: 2}) : (typeof v === 'number' ? v.toLocaleString('en-US') : v);
+  document.getElementById('outLbl').textContent = label;
+  document.getElementById('outBig').textContent = Number.isNaN(big) ? '—' : fmt(big);
+  const tb = document.getElementById('outTable'); tb.innerHTML = '';
+  (rows || []).forEach(r => { tb.innerHTML += '<tr><td>' + r[0] + '</td><td>' + (typeof r[1] === 'number' ? fmt(r[1]) : r[1]) + '</td></tr>'; });
+  document.getElementById('res').style.display = 'block';
+}
+function calc() {
+  const g = id => document.getElementById(id);
+  const cost = g('cost');
+  const value = g('value');
+  const years = g('years');
+  try {
+const c=+cost.value, v=+value.value, y=Math.max(0.01, +years.value);
+const roi=(v-c)/c*100, annual=(Math.pow(v/c, 1/y)-1)*100;
+out('Total ROI', roi.toFixed(2) + '%', [['Annualized return (CAGR)', annual.toFixed(2) + '%'], ['Net profit', v-c], ['Growth multiple', (v/c).toFixed(2)+'x']]);
+  } catch (e) { document.getElementById('outLbl').textContent = 'Error: ' + e.message; document.getElementById('res').style.display = 'block'; }
+}
+</script>
+
+</main>
+<footer>CalcFin — free financial calculators. Results are estimates, not financial advice. © 2026<br>
+<a href="/privacy.html">Privacy</a> · <a href="/about.html">About</a></footer>
+__SCRIPT__
+</body>
+</html>

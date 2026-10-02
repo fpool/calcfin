@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About CalcFin | CalcFin</title>
+<meta name="description" content="About CalcFin — free financial calculators that run in your browser with transparent formulas.">
+<link rel="canonical" href="https://calcfin-vpg.pages.devabout.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcFin">
+<meta property="og:title" content="About CalcFin | CalcFin">
+<meta property="og:description" content="About CalcFin — free financial calculators that run in your browser with transparent formulas.">
+<meta property="og:url" content="https://calcfin-vpg.pages.devabout.html">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CalcFin","url":"https://calcfin-vpg.pages.devabout.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"About CalcFin — free financial calculators that run in your browser with transparent formulas."}</script>
+<script type="application/ld+json"></script>
+<style>
+  :root { --brand:#0e7490; --brand-soft:#ecfeff; --bg:#f8fafc; --card:#fff; --text:#0f172a; --muted:#475569; --faint:#64748b; --border:#e2e8f0; --shadow:rgba(0,0,0,.07); --ok:#067647; --ok-bg:#ecfdf5; }
+  [data-theme="dark"] { --brand:#22d3ee; --brand-soft:#0c2a31; --bg:#0b1220; --card:#111a2c; --text:#e6edf7; --muted:#9fb0c7; --faint:#7c8aa0; --border:#1e293b; --shadow:rgba(0,0,0,.45); --ok:#34d399; --ok-bg:#0c2a22; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif; color:var(--text); background:var(--bg); line-height:1.7; }
+  header { position:sticky; top:0; z-index:100; background:var(--card); border-bottom:1px solid var(--border); padding:14px 24px; box-shadow:0 1px 10px var(--shadow); }
+  .header-inner { max-width:960px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .logo { font-weight:800; font-size:20px; color:var(--brand); text-decoration:none; white-space:nowrap; }
+  .nav-links { display:flex; gap:20px; flex-wrap:wrap; }
+  .nav-links a { color:var(--muted); text-decoration:none; font-size:14px; white-space:nowrap; }
+  .nav-links a:hover { color:var(--brand); }
+  .nav-links a.on { color:var(--brand); font-weight:600; }
+  main { max-width:960px; margin:0 auto; padding:32px 20px 64px; }
+  h1 { font-size:28px; margin-bottom:8px; }
+  h2 { font-size:20px; margin:30px 0 10px; }
+  .sub { color:var(--muted); margin-bottom:24px; font-size:16px; }
+  .calc { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:22px; box-shadow:0 1px 4px var(--shadow); }
+  .calc label { display:block; font-size:13px; color:var(--muted); margin:12px 0 4px; font-weight:600; }
+  .calc input { width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); font-size:15px; }
+  .calc input:focus { outline:2px solid var(--brand); border-color:transparent; }
+  .btn { margin-top:16px; width:100%; background:var(--brand); color:#fff; border:0; border-radius:10px; padding:12px; font-size:16px; font-weight:700; cursor:pointer; }
+  .btn:hover { filter:brightness(1.1); }
+  .result { display:none; margin-top:18px; background:var(--ok-bg); border:1px solid transparent; border-radius:10px; padding:16px; }
+  .result .big { font-size:26px; font-weight:800; color:var(--ok); }
+  .result .lbl { font-size:13px; color:var(--muted); }
+  .result table { width:100%; margin-top:10px; font-size:14px; border-collapse:collapse; }
+  .result td { padding:4px 0; color:var(--muted); }
+  .result td:last-child { text-align:right; color:var(--text); font-weight:600; }
+  p, li { color:var(--muted); font-size:15px; margin-bottom:10px; }
+  ul { padding-left:22px; }
+  .formula { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:14px 18px; font-family:Consolas,monospace; font-size:14px; color:var(--text); margin:12px 0; overflow-x:auto; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:14px; margin-top:16px; }
+  .grid a { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; text-decoration:none; color:var(--text); font-weight:600; font-size:14px; box-shadow:0 1px 3px var(--shadow); }
+  .grid a:hover { border-color:var(--brand); color:var(--brand); }
+  .grid a span { display:block; font-weight:400; color:var(--muted); font-size:13px; margin-top:4px; }
+  footer { text-align:center; color:var(--faint); font-size:13px; padding:28px; border-top:1px solid var(--border); margin-top:40px; }
+  footer a { color:var(--faint); margin:0 10px; text-decoration:none; }
+</style>
+</head>
+<body>
+<header><div class="header-inner">
+  <a class="logo" href="/">💵 CalcFin</a>
+  <nav class="nav-links">
+    <a href="/">All calculators</a>
+    <a href="/compound-interest.html">Compound interest</a>
+    <a href="/loan-payment.html">Loan payment</a>
+    <a href="/mortgage-payment.html">Mortgage payment</a>
+    <a href="/savings-goal.html">Savings goal</a>
+    <a href="/credit-card-payoff.html">Credit card payoff</a>
+    <a href="/inflation.html">Inflation</a>
+    <a href="/roi.html">ROI</a>
+    <a href="/retirement.html">Retirement savings</a>
+    <a href="/privacy.html">Privacy</a><a href="/about.html">About</a>
+  </nav>
+</div></header>
+<main>
+
+  <h1>About CalcFin</h1>
+  <p>CalcFin is a collection of fast, free, no-nonsense financial calculators. Every calculator runs <b>entirely in your browser</b> — your numbers never touch a server — and every page explains the formula behind the result.</p>
+  <h2>Why CalcFin exists</h2>
+  <p>Most finance calculator sites bury the tool under ads, require signups, or hide the math. We do the opposite: clean tools, transparent formulas, honest estimates.</p>
+  <h2>Principles</h2>
+  <ul>
+    <li><b>Local by default.</b> No inputs ever leave your device.</li>
+    <li><b>Transparent math.</b> Every page shows the exact formula used.</li>
+    <li><b>Free means free.</b> No signup, no paywall, no limits.</li>
+  </ul>
+  <h2>Contact</h2>
+  <p>Feedback and bug reports: <b>liuyulong667@gmail.com</b>.</p>
+
+</main>
+<footer>CalcFin — free financial calculators. Results are estimates, not financial advice. © 2026<br>
+<a href="/privacy.html">Privacy</a> · <a href="/about.html">About</a></footer>
+__SCRIPT__
+</body>
+</html>
