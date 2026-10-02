@@ -5,10 +5,12 @@
 import sys
 from pathlib import Path
 from i18n import TR, EN_LBL
+from i18n_extra import EXTRA
+TR.update(EXTRA)
 
 sys.stdout.reconfigure(encoding="utf-8")
 BASE_URL = "https://calcfin-vpg.pages.dev"
-LANGS = ["en", "de", "fr", "es"]
+LANGS = ["en", "de", "fr", "es", "ja", "it", "pt"]
 
 CSS = """
   :root { --brand:#0e7490; --brand-soft:#ecfeff; --bg:#f8fafc; --card:#fff; --text:#0f172a; --muted:#475569; --faint:#64748b; --border:#e2e8f0; --shadow:rgba(0,0,0,.07); --ok:#067647; --ok-bg:#ecfdf5; }

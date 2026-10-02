@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{const t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='dark';}catch(e){}</script>
+<title>無料の金融計算機 — 複利・ローン・住宅ローン・貯蓄 | CalcFin</title>
+<meta name="description" content="無料オンライン金融計算機:複利、ローン返済、住宅ローン、貯蓄目標、カード支払い、インフレ、ROI、老後資金。非公開、登録不要。">
+<link rel="canonical" href="https://calcfin-vpg.pages.dev/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcFin">
+<meta property="og:title" content="無料の金融計算機 — 複利・ローン・住宅ローン・貯蓄 | CalcFin">
+<meta property="og:description" content="無料オンライン金融計算機:複利、ローン返済、住宅ローン、貯蓄目標、カード支払い、インフレ、ROI、老後資金。非公開、登録不要。">
+<meta property="og:url" content="https://calcfin-vpg.pages.dev/">
+<meta name="twitter:card" content="summary">
+  <link rel="alternate" hreflang="en" href="https://calcfin-vpg.pages.dev/index">
+  <link rel="alternate" hreflang="de" href="https://calcfin-vpg.pages.dev/index-de">
+  <link rel="alternate" hreflang="fr" href="https://calcfin-vpg.pages.dev/index-fr">
+  <link rel="alternate" hreflang="es" href="https://calcfin-vpg.pages.dev/index-es">
+  <link rel="alternate" hreflang="ja" href="https://calcfin-vpg.pages.dev/index-ja">
+  <link rel="alternate" hreflang="it" href="https://calcfin-vpg.pages.dev/index-it">
+  <link rel="alternate" hreflang="pt" href="https://calcfin-vpg.pages.dev/index-pt">
+  <link rel="alternate" hreflang="x-default" href="https://calcfin-vpg.pages.dev/index">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CalcFin","url":"https://calcfin-vpg.pages.dev/","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"無料オンライン金融計算機:複利、ローン返済、住宅ローン、貯蓄目標、カード支払い、インフレ、ROI、老後資金。非公開、登録不要。"}</script>
+
+<style>
+  :root { --brand:#0e7490; --brand-soft:#ecfeff; --bg:#f8fafc; --card:#fff; --text:#0f172a; --muted:#475569; --faint:#64748b; --border:#e2e8f0; --shadow:rgba(0,0,0,.07); --ok:#067647; --ok-bg:#ecfdf5; }
+  [data-theme="dark"] { --brand:#22d3ee; --brand-soft:#0c2a31; --bg:#0b1220; --card:#111a2c; --text:#e6edf7; --muted:#9fb0c7; --faint:#7c8aa0; --border:#1e293b; --shadow:rgba(0,0,0,.45); --ok:#34d399; --ok-bg:#0c2a22; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif; color:var(--text); background:var(--bg); line-height:1.7; display:flex; flex-direction:column; min-height:100vh; }
+  header { position:sticky; top:0; z-index:100; background:var(--card); border-bottom:1px solid var(--border); padding:12px 24px; box-shadow:0 1px 10px var(--shadow); }
+  .header-inner { max-width:960px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; }
+  .logo { font-weight:800; font-size:20px; color:var(--brand); text-decoration:none; white-space:nowrap; }
+  .nav-links { display:flex; align-items:center; gap:22px; }
+  .nav-links a { color:var(--muted); text-decoration:none; font-size:14px; white-space:nowrap; }
+  .nav-links a:hover { color:var(--brand); }
+  .controls { display:flex; align-items:center; gap:10px; margin-left:12px; }
+  .lang { position:relative; }
+  #langBtn { display:flex; align-items:center; gap:6px; background:none; border:0; padding:6px 4px; color:var(--text); font-size:14px; font-weight:700; cursor:pointer; white-space:nowrap; }
+  #langBtn:hover { color:var(--brand); }
+  #langBtn .chev { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; transition:transform .2s; }
+  .lang.open #langBtn .chev { transform:rotate(180deg); }
+  .lang-menu { display:none; position:absolute; right:0; top:calc(100% + 8px); background:var(--card); border:1px solid var(--border); border-radius:12px; box-shadow:0 8px 24px var(--shadow); min-width:170px; padding:6px; z-index:60; }
+  .lang.open .lang-menu { display:block; }
+  .lang-menu a { display:block; padding:8px 14px; border-radius:8px; color:var(--text); text-decoration:none; font-size:14px; }
+  .lang-menu a:hover { background:var(--brand-soft); }
+  .lang-menu a.cur { color:var(--brand); font-weight:700; }
+  .lang-menu a.cur::after { content:" ✓"; }
+  #themeBtn { display:flex; align-items:center; justify-content:center; background:var(--card); border:1px solid var(--border); border-radius:10px; width:36px; height:36px; cursor:pointer; color:var(--muted); }
+  #themeBtn:hover { color:var(--brand); border-color:var(--brand); }
+  #themeBtn svg { width:17px; height:17px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  #themeBtn .icon-sun { display:none; }
+  [data-theme="dark"] #themeBtn .icon-moon { display:none; }
+  [data-theme="dark"] #themeBtn .icon-sun { display:block; }
+  main { max-width:960px; margin:0 auto; padding:32px 20px 48px; width:100%; flex:1; }
+  h1 { font-size:28px; margin-bottom:8px; }
+  h2 { font-size:20px; margin:30px 0 10px; }
+  .sub { color:var(--muted); margin-bottom:24px; font-size:16px; }
+  .calc { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:22px; box-shadow:0 1px 4px var(--shadow); }
+  .calc label { display:block; font-size:13px; color:var(--muted); margin:12px 0 4px; font-weight:600; }
+  .calc input { width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); font-size:15px; }
+  .calc input:focus { outline:2px solid var(--brand); border-color:transparent; }
+  .btn { margin-top:16px; width:100%; background:var(--brand); color:#fff; border:0; border-radius:10px; padding:12px; font-size:16px; font-weight:700; cursor:pointer; }
+  .btn:hover { filter:brightness(1.1); }
+  .result { display:none; margin-top:18px; background:var(--ok-bg); border-radius:10px; padding:16px; }
+  .result .big { font-size:26px; font-weight:800; color:var(--ok); }
+  .result .lbl { font-size:13px; color:var(--muted); }
+  .result table { width:100%; margin-top:10px; font-size:14px; border-collapse:collapse; }
+  .result td { padding:4px 0; color:var(--muted); }
+  .result td:last-child { text-align:right; color:var(--text); font-weight:600; }
+  p, li { color:var(--muted); font-size:15px; margin-bottom:10px; }
+  ul { padding-left:22px; }
+  .formula { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:14px 18px; font-family:Consolas,monospace; font-size:14px; color:var(--text); margin:12px 0; overflow-x:auto; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:18px; margin-top:16px; }
+  .grid a { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; text-decoration:none; color:var(--text); font-weight:600; font-size:14px; box-shadow:0 1px 3px var(--shadow); }
+  .grid a:hover { border-color:var(--brand); color:var(--brand); }
+  .grid a span { display:block; font-weight:400; color:var(--muted); font-size:13px; margin-top:4px; }
+  footer { text-align:center; color:var(--faint); font-size:13px; padding:28px; border-top:1px solid var(--border); margin-top:40px; }
+</style>
+</head>
+<body>
+<header><div class="header-inner">
+  <a class="logo" href="/index-ja">💵 CalcFin</a>
+  <nav class="nav-links">
+    <a href="/privacy-ja.html">プライバシー</a><a href="/about-ja.html">このサイトについて</a>
+    <span class="controls"><div class="lang"><button id="langBtn" aria-haspopup="true" aria-expanded="false">日本語<svg class="chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button><div class="lang-menu"><a href="index.html">English</a><a href="index-de.html">Deutsch</a><a href="index-fr.html">Français</a><a href="index-es.html">Español</a><a href="index-ja.html" class="cur">日本語</a><a href="index-it.html">Italiano</a><a href="index-pt.html">Português</a></div></div>
+    <button id="themeBtn" title="Toggle dark mode" aria-label="Toggle dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+    </button></span>
+  </nav>
+</div></header>
+<main>
+
+  <h1>無料の金融計算機</h1>
+  <p class="sub"><b>ブラウザ内で完全に動作</b>する高速・プライベートな計算機 — 入力した数字が端末の外に出ることはありません。各ページで正確な計算式を公開しています。</p>
+  <div class="grid"><a href="/compound-interest-ja.html">複利計算機<span>元本と毎月の積立が複利でどう増えるかを確認できます。利率と期間を調整して、シナリオを即座に比較しましょう。…</span></a><a href="/loan-payment-ja.html">ローン返済計算機<span>借入額・年利・期間を入力すると、固定の月返済額、総利息、総返済額がわかります。…</span></a><a href="/mortgage-payment-ja.html">住宅ローン計算機<span>住宅ローンの返済は元利だけではありません。税・保険・管理費を加えて、毎月実際に引き落とされる金額を確認しましょう。…</span></a><a href="/savings-goal-ja.html">貯蓄目標計算機<span>目標と期限があれば、複利を前提に「到達するために必要な毎月の積立額」を正確に算出します。…</span></a><a href="/credit-card-payoff-ja.html">カード支払い計算機<span>カード残高への固定返済:何ヶ月で完済できるか、その間に銀行がいくら利息を受け取るかを正確に表示します。…</span></a><a href="/inflation-ja.html">インフレ計算機<span>インフレは購買力を静かに縮めます。金額・平均インフレ率・年数を入力して、実質価値を確認しましょう。…</span></a><a href="/roi-ja.html">ROI 計算機<span>単純 ROI は「いくら儲かったか」、年率換算は「どの速さか」— 投資間を公平に比較できるのは後者です。…</span></a><a href="/retirement-ja.html">老後資金計算機<span>現在の貯蓄、毎月の積立(勤務先のマッチ込み)、想定利回りから、退職時点の資産を試算します。…</span></a></div>
+  <h2>登録不要。データ収集なし。ただの計算。</h2>
+  <p>CalcFin のすべての計算機は JavaScript でローカル実行されます — 入力内容はお客様のデバイスで処理され、サーバーに送信されることはありません。各ページで使用している計算式を公開しているので、ブラックボックスを信頼する代わりに数式そのものを確認できます。</p>
+  <p>結果は計画・学習のための推定値であり、金融アドバイスではありません。</p>
+
+</main>
+<footer>CalcFin — free financial calculators. Results are estimates, not financial advice. © 2026</footer>
+<script>
+try {
+const themeBtn = document.getElementById('themeBtn');
+themeBtn.addEventListener('click', function () {
+  const dark = document.documentElement.dataset.theme === 'dark';
+  if (dark) delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = 'dark';
+  try { localStorage.setItem('theme', dark ? 'light' : 'dark'); } catch (e) {}
+});
+const langBox = document.querySelector('.lang');
+if (langBox) {
+  document.getElementById('langBtn').addEventListener('click', function (e) { e.stopPropagation(); langBox.classList.toggle('open'); });
+  document.addEventListener('click', function (e) { if (!langBox.contains(e.target)) langBox.classList.remove('open'); });
+}
+} catch (e) {}
+</script>
+</body>
+</html>

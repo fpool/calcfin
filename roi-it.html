@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{const t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='dark';}catch(e){}</script>
+<title>Calcolatore ROI — rendimento totale e annualizzato | CalcFin</title>
+<meta name="description" content="Calcola il ritorno sull'investimento (ROI) e il rendimento annualizzato. Confronta gli investimenti in modo equo.">
+<link rel="canonical" href="https://calcfin-vpg.pages.dev/roi-it">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcFin">
+<meta property="og:title" content="Calcolatore ROI — rendimento totale e annualizzato | CalcFin">
+<meta property="og:description" content="Calcola il ritorno sull'investimento (ROI) e il rendimento annualizzato. Confronta gli investimenti in modo equo.">
+<meta property="og:url" content="https://calcfin-vpg.pages.dev/roi-it">
+<meta name="twitter:card" content="summary">
+  <link rel="alternate" hreflang="en" href="https://calcfin-vpg.pages.dev/roi">
+  <link rel="alternate" hreflang="de" href="https://calcfin-vpg.pages.dev/roi-de">
+  <link rel="alternate" hreflang="fr" href="https://calcfin-vpg.pages.dev/roi-fr">
+  <link rel="alternate" hreflang="es" href="https://calcfin-vpg.pages.dev/roi-es">
+  <link rel="alternate" hreflang="ja" href="https://calcfin-vpg.pages.dev/roi-ja">
+  <link rel="alternate" hreflang="it" href="https://calcfin-vpg.pages.dev/roi-it">
+  <link rel="alternate" hreflang="pt" href="https://calcfin-vpg.pages.dev/roi-pt">
+  <link rel="alternate" hreflang="x-default" href="https://calcfin-vpg.pages.dev/roi">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CalcFin — Calcolatore ROI","url":"https://calcfin-vpg.pages.dev/roi-it","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Calcola il ritorno sull'investimento (ROI) e il rendimento annualizzato. Confronta gli investimenti in modo equo."}</script>
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Che ROI è buono?","acceptedAnswer":{"@type":"Answer","text":"Dipende da rischio e durata. Le azioni rendono ~10 % nominale a lungo termine; il risparmio molto meno con molto meno rischio."}},{"@type":"Question","name":"ROI o CAGR?","acceptedAnswer":{"@type":"Answer","text":"Il ROI è il guadagno totale in percentuale; il CAGR lo distribuisce per anno. Solo il CAGR permette confronti equi tra durate diverse."}},{"@type":"Question","name":"Il ROI può essere negativo?","acceptedAnswer":{"@type":"Answer","text":"Sì — un valore finale sotto il costo dà ROI e CAGR negativi."}}]}
+<style>
+  :root { --brand:#0e7490; --brand-soft:#ecfeff; --bg:#f8fafc; --card:#fff; --text:#0f172a; --muted:#475569; --faint:#64748b; --border:#e2e8f0; --shadow:rgba(0,0,0,.07); --ok:#067647; --ok-bg:#ecfdf5; }
+  [data-theme="dark"] { --brand:#22d3ee; --brand-soft:#0c2a31; --bg:#0b1220; --card:#111a2c; --text:#e6edf7; --muted:#9fb0c7; --faint:#7c8aa0; --border:#1e293b; --shadow:rgba(0,0,0,.45); --ok:#34d399; --ok-bg:#0c2a22; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif; color:var(--text); background:var(--bg); line-height:1.7; display:flex; flex-direction:column; min-height:100vh; }
+  header { position:sticky; top:0; z-index:100; background:var(--card); border-bottom:1px solid var(--border); padding:12px 24px; box-shadow:0 1px 10px var(--shadow); }
+  .header-inner { max-width:960px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; }
+  .logo { font-weight:800; font-size:20px; color:var(--brand); text-decoration:none; white-space:nowrap; }
+  .nav-links { display:flex; align-items:center; gap:22px; }
+  .nav-links a { color:var(--muted); text-decoration:none; font-size:14px; white-space:nowrap; }
+  .nav-links a:hover { color:var(--brand); }
+  .controls { display:flex; align-items:center; gap:10px; margin-left:12px; }
+  .lang { position:relative; }
+  #langBtn { display:flex; align-items:center; gap:6px; background:none; border:0; padding:6px 4px; color:var(--text); font-size:14px; font-weight:700; cursor:pointer; white-space:nowrap; }
+  #langBtn:hover { color:var(--brand); }
+  #langBtn .chev { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; transition:transform .2s; }
+  .lang.open #langBtn .chev { transform:rotate(180deg); }
+  .lang-menu { display:none; position:absolute; right:0; top:calc(100% + 8px); background:var(--card); border:1px solid var(--border); border-radius:12px; box-shadow:0 8px 24px var(--shadow); min-width:170px; padding:6px; z-index:60; }
+  .lang.open .lang-menu { display:block; }
+  .lang-menu a { display:block; padding:8px 14px; border-radius:8px; color:var(--text); text-decoration:none; font-size:14px; }
+  .lang-menu a:hover { background:var(--brand-soft); }
+  .lang-menu a.cur { color:var(--brand); font-weight:700; }
+  .lang-menu a.cur::after { content:" ✓"; }
+  #themeBtn { display:flex; align-items:center; justify-content:center; background:var(--card); border:1px solid var(--border); border-radius:10px; width:36px; height:36px; cursor:pointer; color:var(--muted); }
+  #themeBtn:hover { color:var(--brand); border-color:var(--brand); }
+  #themeBtn svg { width:17px; height:17px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  #themeBtn .icon-sun { display:none; }
+  [data-theme="dark"] #themeBtn .icon-moon { display:none; }
+  [data-theme="dark"] #themeBtn .icon-sun { display:block; }
+  main { max-width:960px; margin:0 auto; padding:32px 20px 48px; width:100%; flex:1; }
+  h1 { font-size:28px; margin-bottom:8px; }
+  h2 { font-size:20px; margin:30px 0 10px; }
+  .sub { color:var(--muted); margin-bottom:24px; font-size:16px; }
+  .calc { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:22px; box-shadow:0 1px 4px var(--shadow); }
+  .calc label { display:block; font-size:13px; color:var(--muted); margin:12px 0 4px; font-weight:600; }
+  .calc input { width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); font-size:15px; }
+  .calc input:focus { outline:2px solid var(--brand); border-color:transparent; }
+  .btn { margin-top:16px; width:100%; background:var(--brand); color:#fff; border:0; border-radius:10px; padding:12px; font-size:16px; font-weight:700; cursor:pointer; }
+  .btn:hover { filter:brightness(1.1); }
+  .result { display:none; margin-top:18px; background:var(--ok-bg); border-radius:10px; padding:16px; }
+  .result .big { font-size:26px; font-weight:800; color:var(--ok); }
+  .result .lbl { font-size:13px; color:var(--muted); }
+  .result table { width:100%; margin-top:10px; font-size:14px; border-collapse:collapse; }
+  .result td { padding:4px 0; color:var(--muted); }
+  .result td:last-child { text-align:right; color:var(--text); font-weight:600; }
+  p, li { color:var(--muted); font-size:15px; margin-bottom:10px; }
+  ul { padding-left:22px; }
+  .formula { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:14px 18px; font-family:Consolas,monospace; font-size:14px; color:var(--text); margin:12px 0; overflow-x:auto; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:18px; margin-top:16px; }
+  .grid a { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; text-decoration:none; color:var(--text); font-weight:600; font-size:14px; box-shadow:0 1px 3px var(--shadow); }
+  .grid a:hover { border-color:var(--brand); color:var(--brand); }
+  .grid a span { display:block; font-weight:400; color:var(--muted); font-size:13px; margin-top:4px; }
+  footer { text-align:center; color:var(--faint); font-size:13px; padding:28px; border-top:1px solid var(--border); margin-top:40px; }
+</style>
+</head>
+<body>
+<header><div class="header-inner">
+  <a class="logo" href="/index-it">💵 CalcFin</a>
+  <nav class="nav-links">
+    <a href="/privacy-it.html">Privacy</a><a href="/about-it.html">Chi siamo</a>
+    <span class="controls"><div class="lang"><button id="langBtn" aria-haspopup="true" aria-expanded="false">Italiano<svg class="chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button><div class="lang-menu"><a href="roi.html">English</a><a href="roi-de.html">Deutsch</a><a href="roi-fr.html">Français</a><a href="roi-es.html">Español</a><a href="roi-ja.html">日本語</a><a href="roi-it.html" class="cur">Italiano</a><a href="roi-pt.html">Português</a></div></div>
+    <button id="themeBtn" title="Toggle dark mode" aria-label="Toggle dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+    </button></span>
+  </nav>
+</div></header>
+<main>
+
+  <h1>Calcolatore ROI</h1>
+  <p class="sub">Il ROI semplice dice quanto hai guadagnato; il ROI annualizzato dice quanto velocemente — ed è l'unico numero confrontabile tra investimenti.</p>
+  <div class="calc">
+    <label for="cost">Importo investito ($)</label>
+    <input type="number" step="any" id="cost" value="10000"><label for="value">Valore finale ($)</label>
+    <input type="number" step="any" id="value" value="16000"><label for="years">Periodo di detenzione (anni)</label>
+    <input type="number" step="any" id="years" value="3">
+    <button class="btn" onclick="calc()">Calcola</button>
+    <div class="result" id="res">
+      <div class="lbl" id="outLbl"></div>
+      <div class="big" id="outBig"></div>
+      <table id="outTable"></table>
+    </div>
+  </div>
+  <h2>Come funziona</h2>
+  <div class="formula">ROI = (Finale − Costo) / Costo × 100 %      CAGR = (Finale/Costo)^(1/anni) − 1</div>
+  <ul><li>Il ROI da solo inganna: +50 % in 1 anno è ottimo, +50 % in 10 anni è mediocre. La figura annualizzata (CAGR) rende gli investimenti confrontabili.</li><li>Il CAGR è il tasso annuo costante che porta dal costo al valore finale nello stesso periodo.</li><li>Includi commissioni, tasse e dividendi nel valore finale per un quadro onesto.</li></ul>
+  <h2>Domande frequenti</h2>
+  <p><b>Che ROI è buono?</b> Dipende da rischio e durata. Le azioni rendono ~10 % nominale a lungo termine; il risparmio molto meno con molto meno rischio.</p><p><b>ROI o CAGR?</b> Il ROI è il guadagno totale in percentuale; il CAGR lo distribuisce per anno. Solo il CAGR permette confronti equi tra durate diverse.</p><p><b>Il ROI può essere negativo?</b> Sì — un valore finale sotto il costo dà ROI e CAGR negativi.</p>
+  <h2>Calcolatori correlati</h2>
+  <div class="grid"><a href="/compound-interest-it.html">Calcolatore interesse composto</a><a href="/loan-payment-it.html">Calcolatore rata prestito</a><a href="/mortgage-payment-it.html">Calcolatore rata mutuo</a><a href="/savings-goal-it.html">Calcolatore obiettivo risparmio</a><a href="/credit-card-payoff-it.html">Calcolatore estinzione carta</a><a href="/inflation-it.html">Calcolatore inflazione</a><a href="/retirement-it.html">Calcolatore pensione</a></div>
+  <script>
+window.__LBL__ = {"main": "ROI totale", "rows": {"cagr": "Rendimento annualizzato (CAGR)", "profit": "Profitto netto", "multiple": "Multiple di crescita"}};
+const F = v => '$' + Number(v).toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
+function out(mainKey, big, rows) {
+  const L = window.__LBL__;
+  const label = mainKey === '__main__' ? L.main : (L.rows[mainKey] || mainKey);
+  document.getElementById('outLbl').textContent = label;
+  document.getElementById('outBig').textContent = big;
+  const tb = document.getElementById('outTable'); tb.innerHTML = '';
+  (rows || []).forEach(function (r) { tb.innerHTML += '<tr><td>' + (L.rows[r[0]] || r[0]) + '</td><td>' + r[1] + '</td></tr>'; });
+  document.getElementById('res').style.display = 'block';
+}
+function calc() {
+  const g = function (id) { return document.getElementById(id); };
+const cost = g('cost');
+  const value = g('value');
+  const years = g('years');
+  try {
+const c=+cost.value, v=+value.value, y=Math.max(0.01, +years.value);
+const roi=(v-c)/c*100, annual=(Math.pow(v/c, 1/y)-1)*100;
+out('__main__', roi.toFixed(2) + '%', [[L.rows.cagr, annual.toFixed(2) + '%'], [L.rows.profit, F(v-c)], [L.rows.multiple, (v/c).toFixed(2)+'x']]);
+  } catch (e) { document.getElementById('outLbl').textContent = 'Error: ' + e.message; document.getElementById('res').style.display = 'block'; }
+}
+</script>
+
+</main>
+<footer>CalcFin — free financial calculators. Results are estimates, not financial advice. © 2026</footer>
+<script>
+try {
+const themeBtn = document.getElementById('themeBtn');
+themeBtn.addEventListener('click', function () {
+  const dark = document.documentElement.dataset.theme === 'dark';
+  if (dark) delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = 'dark';
+  try { localStorage.setItem('theme', dark ? 'light' : 'dark'); } catch (e) {}
+});
+const langBox = document.querySelector('.lang');
+if (langBox) {
+  document.getElementById('langBtn').addEventListener('click', function (e) { e.stopPropagation(); langBox.classList.toggle('open'); });
+  document.addEventListener('click', function (e) { if (!langBox.contains(e.target)) langBox.classList.remove('open'); });
+}
+} catch (e) {}
+</script>
+</body>
+</html>

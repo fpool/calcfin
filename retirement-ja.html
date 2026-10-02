@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{const t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.theme='dark';}catch(e){}</script>
+<title>老後資金計算機 — 足りるか試算 | CalcFin</title>
+<meta name="description" content="現預金・毎月の積立(勤務先マッチ込み)・運用利回りから退職時の資産を試算。無料で非公開。">
+<link rel="canonical" href="https://calcfin-vpg.pages.dev/retirement-ja">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CalcFin">
+<meta property="og:title" content="老後資金計算機 — 足りるか試算 | CalcFin">
+<meta property="og:description" content="現預金・毎月の積立(勤務先マッチ込み)・運用利回りから退職時の資産を試算。無料で非公開。">
+<meta property="og:url" content="https://calcfin-vpg.pages.dev/retirement-ja">
+<meta name="twitter:card" content="summary">
+  <link rel="alternate" hreflang="en" href="https://calcfin-vpg.pages.dev/retirement">
+  <link rel="alternate" hreflang="de" href="https://calcfin-vpg.pages.dev/retirement-de">
+  <link rel="alternate" hreflang="fr" href="https://calcfin-vpg.pages.dev/retirement-fr">
+  <link rel="alternate" hreflang="es" href="https://calcfin-vpg.pages.dev/retirement-es">
+  <link rel="alternate" hreflang="ja" href="https://calcfin-vpg.pages.dev/retirement-ja">
+  <link rel="alternate" hreflang="it" href="https://calcfin-vpg.pages.dev/retirement-it">
+  <link rel="alternate" hreflang="pt" href="https://calcfin-vpg.pages.dev/retirement-pt">
+  <link rel="alternate" hreflang="x-default" href="https://calcfin-vpg.pages.dev/retirement">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"CalcFin — 老後資金計算機","url":"https://calcfin-vpg.pages.dev/retirement-ja","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"現預金・毎月の積立(勤務先マッチ込み)・運用利回りから退職時の資産を試算。無料で非公開。"}</script>
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"利回りはいくらを想定すべき?","acceptedAnswer":{"@type":"Answer","text":"分散ポートフォリオの過去リターンは名目 7〜8 %。保守的には 5〜6 % で計画。"}},{"@type":"Question","name":"公的年金は含まれますか?","acceptedAnswer":{"@type":"Answer","text":"いいえ — ここは自分の投資のみ。期待される年金は別途計上してください。"}},{"@type":"Question","name":"実際いくら必要?","acceptedAnswer":{"@type":"Answer","text":"一般的な目安は想定年支出の 25 倍(「4 % ルール」)— ただし個人差が大きいです。"}}]}
+<style>
+  :root { --brand:#0e7490; --brand-soft:#ecfeff; --bg:#f8fafc; --card:#fff; --text:#0f172a; --muted:#475569; --faint:#64748b; --border:#e2e8f0; --shadow:rgba(0,0,0,.07); --ok:#067647; --ok-bg:#ecfdf5; }
+  [data-theme="dark"] { --brand:#22d3ee; --brand-soft:#0c2a31; --bg:#0b1220; --card:#111a2c; --text:#e6edf7; --muted:#9fb0c7; --faint:#7c8aa0; --border:#1e293b; --shadow:rgba(0,0,0,.45); --ok:#34d399; --ok-bg:#0c2a22; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif; color:var(--text); background:var(--bg); line-height:1.7; display:flex; flex-direction:column; min-height:100vh; }
+  header { position:sticky; top:0; z-index:100; background:var(--card); border-bottom:1px solid var(--border); padding:12px 24px; box-shadow:0 1px 10px var(--shadow); }
+  .header-inner { max-width:960px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; }
+  .logo { font-weight:800; font-size:20px; color:var(--brand); text-decoration:none; white-space:nowrap; }
+  .nav-links { display:flex; align-items:center; gap:22px; }
+  .nav-links a { color:var(--muted); text-decoration:none; font-size:14px; white-space:nowrap; }
+  .nav-links a:hover { color:var(--brand); }
+  .controls { display:flex; align-items:center; gap:10px; margin-left:12px; }
+  .lang { position:relative; }
+  #langBtn { display:flex; align-items:center; gap:6px; background:none; border:0; padding:6px 4px; color:var(--text); font-size:14px; font-weight:700; cursor:pointer; white-space:nowrap; }
+  #langBtn:hover { color:var(--brand); }
+  #langBtn .chev { width:15px; height:15px; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; transition:transform .2s; }
+  .lang.open #langBtn .chev { transform:rotate(180deg); }
+  .lang-menu { display:none; position:absolute; right:0; top:calc(100% + 8px); background:var(--card); border:1px solid var(--border); border-radius:12px; box-shadow:0 8px 24px var(--shadow); min-width:170px; padding:6px; z-index:60; }
+  .lang.open .lang-menu { display:block; }
+  .lang-menu a { display:block; padding:8px 14px; border-radius:8px; color:var(--text); text-decoration:none; font-size:14px; }
+  .lang-menu a:hover { background:var(--brand-soft); }
+  .lang-menu a.cur { color:var(--brand); font-weight:700; }
+  .lang-menu a.cur::after { content:" ✓"; }
+  #themeBtn { display:flex; align-items:center; justify-content:center; background:var(--card); border:1px solid var(--border); border-radius:10px; width:36px; height:36px; cursor:pointer; color:var(--muted); }
+  #themeBtn:hover { color:var(--brand); border-color:var(--brand); }
+  #themeBtn svg { width:17px; height:17px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  #themeBtn .icon-sun { display:none; }
+  [data-theme="dark"] #themeBtn .icon-moon { display:none; }
+  [data-theme="dark"] #themeBtn .icon-sun { display:block; }
+  main { max-width:960px; margin:0 auto; padding:32px 20px 48px; width:100%; flex:1; }
+  h1 { font-size:28px; margin-bottom:8px; }
+  h2 { font-size:20px; margin:30px 0 10px; }
+  .sub { color:var(--muted); margin-bottom:24px; font-size:16px; }
+  .calc { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:22px; box-shadow:0 1px 4px var(--shadow); }
+  .calc label { display:block; font-size:13px; color:var(--muted); margin:12px 0 4px; font-weight:600; }
+  .calc input { width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); color:var(--text); font-size:15px; }
+  .calc input:focus { outline:2px solid var(--brand); border-color:transparent; }
+  .btn { margin-top:16px; width:100%; background:var(--brand); color:#fff; border:0; border-radius:10px; padding:12px; font-size:16px; font-weight:700; cursor:pointer; }
+  .btn:hover { filter:brightness(1.1); }
+  .result { display:none; margin-top:18px; background:var(--ok-bg); border-radius:10px; padding:16px; }
+  .result .big { font-size:26px; font-weight:800; color:var(--ok); }
+  .result .lbl { font-size:13px; color:var(--muted); }
+  .result table { width:100%; margin-top:10px; font-size:14px; border-collapse:collapse; }
+  .result td { padding:4px 0; color:var(--muted); }
+  .result td:last-child { text-align:right; color:var(--text); font-weight:600; }
+  p, li { color:var(--muted); font-size:15px; margin-bottom:10px; }
+  ul { padding-left:22px; }
+  .formula { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:14px 18px; font-family:Consolas,monospace; font-size:14px; color:var(--text); margin:12px 0; overflow-x:auto; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:18px; margin-top:16px; }
+  .grid a { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:16px; text-decoration:none; color:var(--text); font-weight:600; font-size:14px; box-shadow:0 1px 3px var(--shadow); }
+  .grid a:hover { border-color:var(--brand); color:var(--brand); }
+  .grid a span { display:block; font-weight:400; color:var(--muted); font-size:13px; margin-top:4px; }
+  footer { text-align:center; color:var(--faint); font-size:13px; padding:28px; border-top:1px solid var(--border); margin-top:40px; }
+</style>
+</head>
+<body>
+<header><div class="header-inner">
+  <a class="logo" href="/index-ja">💵 CalcFin</a>
+  <nav class="nav-links">
+    <a href="/privacy-ja.html">プライバシー</a><a href="/about-ja.html">このサイトについて</a>
+    <span class="controls"><div class="lang"><button id="langBtn" aria-haspopup="true" aria-expanded="false">日本語<svg class="chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button><div class="lang-menu"><a href="retirement.html">English</a><a href="retirement-de.html">Deutsch</a><a href="retirement-fr.html">Français</a><a href="retirement-es.html">Español</a><a href="retirement-ja.html" class="cur">日本語</a><a href="retirement-it.html">Italiano</a><a href="retirement-pt.html">Português</a></div></div>
+    <button id="themeBtn" title="Toggle dark mode" aria-label="Toggle dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+    </button></span>
+  </nav>
+</div></header>
+<main>
+
+  <h1>老後資金計算機</h1>
+  <p class="sub">現在の貯蓄、毎月の積立(勤務先のマッチ込み)、想定利回りから、退職時点の資産を試算します。</p>
+  <div class="calc">
+    <label for="current">現在の貯蓄 ($)</label>
+    <input type="number" step="any" id="current" value="60000"><label for="monthly">毎月の積立 ($)</label>
+    <input type="number" step="any" id="monthly" value="600"><label for="match">勤務先マッチ ($)</label>
+    <input type="number" step="any" id="match" value="150"><label for="rate">年利回り (%)</label>
+    <input type="number" step="any" id="rate" value="7"><label for="years">退職までの年数</label>
+    <input type="number" step="any" id="years" value="25">
+    <button class="btn" onclick="calc()">計算する</button>
+    <div class="result" id="res">
+      <div class="lbl" id="outLbl"></div>
+      <div class="big" id="outBig"></div>
+      <table id="outTable"></table>
+    </div>
+  </div>
+  <h2>計算の仕組み</h2>
+  <div class="formula">将来価値 = 現貯蓄·(1+r/n)^(nt) + 月積立·[ ((1+r/n)^(nt) − 1) / (r/n) ] × (1+r/n)</div>
+  <ul><li>勤務先のマッチはタダ同然の金 — 積立に含めましょう;キャリアを通じて六桁の差になることも。</li><li>複利の最後の 10 年が最大の金額を生みます — 多く積むより早く始めるほうが重要です。</li><li>結果は名目額です。インフレ計算機で現在の購買力に換算して確認しましょう。</li></ul>
+  <h2>よくある質問</h2>
+  <p><b>利回りはいくらを想定すべき?</b> 分散ポートフォリオの過去リターンは名目 7〜8 %。保守的には 5〜6 % で計画。</p><p><b>公的年金は含まれますか?</b> いいえ — ここは自分の投資のみ。期待される年金は別途計上してください。</p><p><b>実際いくら必要?</b> 一般的な目安は想定年支出の 25 倍(「4 % ルール」)— ただし個人差が大きいです。</p>
+  <h2>関連する計算機</h2>
+  <div class="grid"><a href="/compound-interest-ja.html">複利計算機</a><a href="/loan-payment-ja.html">ローン返済計算機</a><a href="/mortgage-payment-ja.html">住宅ローン計算機</a><a href="/savings-goal-ja.html">貯蓄目標計算機</a><a href="/credit-card-payoff-ja.html">カード支払い計算機</a><a href="/inflation-ja.html">インフレ計算機</a><a href="/roi-ja.html">ROI 計算機</a></div>
+  <script>
+window.__LBL__ = {"main": "退職時の試算資産", "rows": {"fv": "現貯蓄から", "fvm": "積立から", "contrib": "累計拠出額", "growth": "運用益"}};
+const F = v => '$' + Number(v).toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
+function out(mainKey, big, rows) {
+  const L = window.__LBL__;
+  const label = mainKey === '__main__' ? L.main : (L.rows[mainKey] || mainKey);
+  document.getElementById('outLbl').textContent = label;
+  document.getElementById('outBig').textContent = big;
+  const tb = document.getElementById('outTable'); tb.innerHTML = '';
+  (rows || []).forEach(function (r) { tb.innerHTML += '<tr><td>' + (L.rows[r[0]] || r[0]) + '</td><td>' + r[1] + '</td></tr>'; });
+  document.getElementById('res').style.display = 'block';
+}
+function calc() {
+  const g = function (id) { return document.getElementById(id); };
+const current = g('current');
+  const monthly = g('monthly');
+  const match = g('match');
+  const rate = g('rate');
+  const years = g('years');
+  try {
+const c=+current.value, m=+monthly.value+ +match.value, r=+rate.value/100, y=+years.value;
+const n=12, g=Math.pow(1+r/n, n*y);
+const fv=c*g, fvm=m*((g-1)/(r/n))*(1+r/n), total=fv+fvm;
+out('__main__', F(total), [[L.rows.fv, F(fv)], [L.rows.fvm, F(fvm)], [L.rows.contrib, F(c+m*12*y)], [L.rows.growth, F(total-c-m*12*y)]]);
+  } catch (e) { document.getElementById('outLbl').textContent = 'Error: ' + e.message; document.getElementById('res').style.display = 'block'; }
+}
+</script>
+
+</main>
+<footer>CalcFin — free financial calculators. Results are estimates, not financial advice. © 2026</footer>
+<script>
+try {
+const themeBtn = document.getElementById('themeBtn');
+themeBtn.addEventListener('click', function () {
+  const dark = document.documentElement.dataset.theme === 'dark';
+  if (dark) delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = 'dark';
+  try { localStorage.setItem('theme', dark ? 'light' : 'dark'); } catch (e) {}
+});
+const langBox = document.querySelector('.lang');
+if (langBox) {
+  document.getElementById('langBtn').addEventListener('click', function (e) { e.stopPropagation(); langBox.classList.toggle('open'); });
+  document.addEventListener('click', function (e) { if (!langBox.contains(e.target)) langBox.classList.remove('open'); });
+}
+} catch (e) {}
+</script>
+</body>
+</html>
