@@ -425,7 +425,7 @@ def render(lang, base, title, meta, body, cur, ld_faq=None, ld_name="CalcFin"):
             .replace("__LD_WEBAPP__", ld_w).replace("__LD_FAQ__", ent)
             .replace("__NAV_PRIVACY__", tr.get("nav_privacy", "Privacy"))
             .replace("__NAV_ABOUT__", tr.get("nav_about", "About"))
-            .replace("__HOME_HREF__", "/" if base == "index" and lang == "en" else "/" + page_file(base, lang).replace(".html", ""))
+            .replace("__HOME_HREF__", "/" if lang == "en" else "/index-" + lang)
             .replace("__PRIVACY_HREF__", "/privacy.html" if lang == "en" else "/privacy-" + lang + ".html")
             .replace("__ABOUT_HREF__", "/about.html" if lang == "en" else "/about-" + lang + ".html")
             .replace("__LANGSWITCH__", lang_switcher(lang, lambda c: page_file(base, c)))
