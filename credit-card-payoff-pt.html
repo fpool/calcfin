@@ -115,6 +115,7 @@
   <div class="grid"><a href="/compound-interest-pt.html">Calculadora de juros compostos</a><a href="/loan-payment-pt.html">Calculadora de prestação</a><a href="/mortgage-payment-pt.html">Calculadora de financiamento imobiliário</a><a href="/savings-goal-pt.html">Calculadora de meta de poupança</a><a href="/inflation-pt.html">Calculadora de inflação</a><a href="/roi-pt.html">Calculadora de ROI</a><a href="/retirement-pt.html">Calculadora de aposentadoria</a></div>
   <script>
 window.__LBL__ = {"main": "Meses até quitar", "rows": {"interest": "Juros pagos", "paid": "Total pago", "date": "Sem dívida estimado", "never": "Nunca quita", "mi": "Juros mensais", "need": "Aumentar a parcela acima de"}};
+const L = window.__LBL__;
 const F = v => '$' + Number(v).toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
 function out(mainKey, big, rows) {
   const L = window.__LBL__;

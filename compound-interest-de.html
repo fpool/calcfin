@@ -116,6 +116,7 @@
   <div class="grid"><a href="/loan-payment-de.html">Kreditratenrechner</a><a href="/mortgage-payment-de.html">Hypothekenrechner</a><a href="/savings-goal-de.html">Sparziel-Rechner</a><a href="/credit-card-payoff-de.html">Kreditkarten-Tilgungsrechner</a><a href="/inflation-de.html">Inflationsrechner</a><a href="/roi-de.html">Renditerechner (ROI)</a><a href="/retirement-de.html">Rentenrechner</a></div>
   <script>
 window.__LBL__ = {"main": "Endwert", "rows": {"deposited": "Eingezahlt gesamt", "interest": "Zinsertrag", "multiple": "Wachstumsfaktor"}};
+const L = window.__LBL__;
 const F = v => '$' + Number(v).toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
 function out(mainKey, big, rows) {
   const L = window.__LBL__;
@@ -137,7 +138,7 @@ const p=+principal.value, r=+rate.value/100, y=+years.value, m=+monthly.value;
 const n=12, g=Math.pow(1+r/n, n*y);
 const fvP=p*g, fvM=m*((g-1)/(r/n))*(1+r/n);
 const total=p+m*12*y, interest=fvP+fvM-total;
-out('__main__', F(fvP+fvM), [[L.rows.deposited, F(total)], [L.rows.interest, F(interest)], [L.rows.multiple, (fvP+fvM/Math.max(total,1)).toFixed(2)+'x']]);
+out('__main__', F(fvP+fvM), [[L.rows.deposited, F(total)], [L.rows.interest, F(interest)], [L.rows.multiple, ((fvP+fvM)/Math.max(total,1)).toFixed(2)+'x']]);
   } catch (e) { document.getElementById('outLbl').textContent = 'Error: ' + e.message; document.getElementById('res').style.display = 'block'; }
 }
 </script>

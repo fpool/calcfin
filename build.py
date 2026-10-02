@@ -177,7 +177,7 @@ dict(slug="compound-interest", nav="Compound interest",
 const n=12, g=Math.pow(1+r/n, n*y);
 const fvP=p*g, fvM=m*((g-1)/(r/n))*(1+r/n);
 const total=p+m*12*y, interest=fvP+fvM-total;
-out('__main__', F(fvP+fvM), [[L.rows.deposited, F(total)], [L.rows.interest, F(interest)], [L.rows.multiple, (fvP+fvM/Math.max(total,1)).toFixed(2)+'x']]);""",
+out('__main__', F(fvP+fvM), [[L.rows.deposited, F(total)], [L.rows.interest, F(interest)], [L.rows.multiple, ((fvP+fvM)/Math.max(total,1)).toFixed(2)+'x']]);""",
  formula="FV = P(1+r/n)^(nt) + PMT · [ ((1+r/n)^(nt) − 1) / (r/n) ] × (1+r/n)",
  how=["Compound interest pays interest on your interest. Compounding monthly at an annual rate r means each month grows your balance by r/12.",
       "The first term is your initial lump sum growing for the whole period; the second is the future value of every monthly contribution.",
@@ -215,9 +215,9 @@ dict(slug="mortgage-payment", nav="Mortgage payment",
          ("tax","Property tax per year ($)","4200"),("ins","Insurance per year ($)","1500"),("hoa","HOA per month ($)","0")],
  compute="""const p=+price.value-+down.value, r=+rate.value/100/12, n=+years.value*12;
 const pi=r===0 ? p/n : p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
-const tax=+tax.value/12, ins=+ins.value/12, hoa=+hoa.value;
-const total=pi+tax+ins+hoa;
-out('__main__', F(total), [[L.rows.pi, F(pi)], [L.rows.tax, F(tax)], [L.rows.ins, F(ins)], [L.rows.hoa, F(hoa)], [L.rows.loan, F(p)]]);""",
+const taxM=+tax.value/12, insM=+ins.value/12, hoaM=+hoa.value;
+const total=pi+taxM+insM+hoaM;
+out('__main__', F(total), [[L.rows.pi, F(pi)], [L.rows.tax, F(taxM)], [L.rows.ins, F(insM)], [L.rows.hoa, F(hoaM)], [L.rows.loan, F(p)]]);""",
  formula="Payment = P&I + (Tax/12) + (Insurance/12) + HOA,  where P&I uses the amortization formula",
  how=["Lenders quote only principal and interest (P&I), but your real payment includes escrowed taxes, insurance and any HOA fees.",
       "A common rule of thumb: budget 1–2% of home value per year for taxes and insurance combined, though it varies a lot by location.",
@@ -374,6 +374,7 @@ def calc_body(c, tr, lang, lbl_json):
   <div class="grid">""" + related + """</div>
   <script>
 window.__LBL__ = """ + lbl_json + """;
+const L = window.__LBL__;
 const F = v => '$' + Number(v).toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
 function out(mainKey, big, rows) {
   const L = window.__LBL__;

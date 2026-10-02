@@ -119,6 +119,7 @@
   <div class="grid"><a href="/compound-interest-pt.html">Calculadora de juros compostos</a><a href="/loan-payment-pt.html">Calculadora de prestação</a><a href="/savings-goal-pt.html">Calculadora de meta de poupança</a><a href="/credit-card-payoff-pt.html">Calculadora de quitação de cartão</a><a href="/inflation-pt.html">Calculadora de inflação</a><a href="/roi-pt.html">Calculadora de ROI</a><a href="/retirement-pt.html">Calculadora de aposentadoria</a></div>
   <script>
 window.__LBL__ = {"main": "Parcela mensal total", "rows": {"pi": "Principal e juros", "tax": "IPTU (mensal)", "ins": "Seguro (mensal)", "hoa": "Condomínio (mensal)", "loan": "Valor financiado"}};
+const L = window.__LBL__;
 const F = v => '$' + Number(v).toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
 function out(mainKey, big, rows) {
   const L = window.__LBL__;
@@ -141,9 +142,9 @@ const price = g('price');
   try {
 const p=+price.value-+down.value, r=+rate.value/100/12, n=+years.value*12;
 const pi=r===0 ? p/n : p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
-const tax=+tax.value/12, ins=+ins.value/12, hoa=+hoa.value;
-const total=pi+tax+ins+hoa;
-out('__main__', F(total), [[L.rows.pi, F(pi)], [L.rows.tax, F(tax)], [L.rows.ins, F(ins)], [L.rows.hoa, F(hoa)], [L.rows.loan, F(p)]]);
+const taxM=+tax.value/12, insM=+ins.value/12, hoaM=+hoa.value;
+const total=pi+taxM+insM+hoaM;
+out('__main__', F(total), [[L.rows.pi, F(pi)], [L.rows.tax, F(taxM)], [L.rows.ins, F(insM)], [L.rows.hoa, F(hoaM)], [L.rows.loan, F(p)]]);
   } catch (e) { document.getElementById('outLbl').textContent = 'Error: ' + e.message; document.getElementById('res').style.display = 'block'; }
 }
 </script>

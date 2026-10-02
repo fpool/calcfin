@@ -116,6 +116,7 @@
   <div class="grid"><a href="/loan-payment-fr.html">Calculateur de mensualités</a><a href="/mortgage-payment-fr.html">Calculateur de mensualité immobilière</a><a href="/savings-goal-fr.html">Calculateur d'objectif d'épargne</a><a href="/credit-card-payoff-fr.html">Calculateur de remboursement de carte</a><a href="/inflation-fr.html">Calculateur d'inflation</a><a href="/roi-fr.html">Calculateur de ROI</a><a href="/retirement-fr.html">Calculateur d'épargne retraite</a></div>
   <script>
 window.__LBL__ = {"main": "Valeur future", "rows": {"deposited": "Total versé", "interest": "Intérêts gagnés", "multiple": "Multiple de croissance"}};
+const L = window.__LBL__;
 const F = v => '$' + Number(v).toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
 function out(mainKey, big, rows) {
   const L = window.__LBL__;
@@ -137,7 +138,7 @@ const p=+principal.value, r=+rate.value/100, y=+years.value, m=+monthly.value;
 const n=12, g=Math.pow(1+r/n, n*y);
 const fvP=p*g, fvM=m*((g-1)/(r/n))*(1+r/n);
 const total=p+m*12*y, interest=fvP+fvM-total;
-out('__main__', F(fvP+fvM), [[L.rows.deposited, F(total)], [L.rows.interest, F(interest)], [L.rows.multiple, (fvP+fvM/Math.max(total,1)).toFixed(2)+'x']]);
+out('__main__', F(fvP+fvM), [[L.rows.deposited, F(total)], [L.rows.interest, F(interest)], [L.rows.multiple, ((fvP+fvM)/Math.max(total,1)).toFixed(2)+'x']]);
   } catch (e) { document.getElementById('outLbl').textContent = 'Error: ' + e.message; document.getElementById('res').style.display = 'block'; }
 }
 </script>

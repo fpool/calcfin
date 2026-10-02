@@ -119,6 +119,7 @@
   <div class="grid"><a href="/compound-interest.html">Compound interest</a><a href="/loan-payment.html">Loan payment</a><a href="/savings-goal.html">Savings goal</a><a href="/credit-card-payoff.html">Credit card payoff</a><a href="/inflation.html">Inflation</a><a href="/roi.html">ROI</a><a href="/retirement.html">Retirement savings</a></div>
   <script>
 window.__LBL__ = {"main": "Total monthly payment", "rows": {"pi": "Principal & interest", "tax": "Property tax (monthly)", "ins": "Insurance (monthly)", "hoa": "HOA (monthly)", "loan": "Loan amount"}};
+const L = window.__LBL__;
 const F = v => '$' + Number(v).toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
 function out(mainKey, big, rows) {
   const L = window.__LBL__;
@@ -141,9 +142,9 @@ const price = g('price');
   try {
 const p=+price.value-+down.value, r=+rate.value/100/12, n=+years.value*12;
 const pi=r===0 ? p/n : p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);
-const tax=+tax.value/12, ins=+ins.value/12, hoa=+hoa.value;
-const total=pi+tax+ins+hoa;
-out('__main__', F(total), [[L.rows.pi, F(pi)], [L.rows.tax, F(tax)], [L.rows.ins, F(ins)], [L.rows.hoa, F(hoa)], [L.rows.loan, F(p)]]);
+const taxM=+tax.value/12, insM=+ins.value/12, hoaM=+hoa.value;
+const total=pi+taxM+insM+hoaM;
+out('__main__', F(total), [[L.rows.pi, F(pi)], [L.rows.tax, F(taxM)], [L.rows.ins, F(insM)], [L.rows.hoa, F(hoaM)], [L.rows.loan, F(p)]]);
   } catch (e) { document.getElementById('outLbl').textContent = 'Error: ' + e.message; document.getElementById('res').style.display = 'block'; }
 }
 </script>

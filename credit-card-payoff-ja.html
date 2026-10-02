@@ -115,6 +115,7 @@
   <div class="grid"><a href="/compound-interest-ja.html">複利計算機</a><a href="/loan-payment-ja.html">ローン返済計算機</a><a href="/mortgage-payment-ja.html">住宅ローン計算機</a><a href="/savings-goal-ja.html">貯蓄目標計算機</a><a href="/inflation-ja.html">インフレ計算機</a><a href="/roi-ja.html">ROI 計算機</a><a href="/retirement-ja.html">老後資金計算機</a></div>
   <script>
 window.__LBL__ = {"main": "完済までの月数", "rows": {"interest": "支払利息総額", "paid": "総返済額", "date": "完済目安", "never": "完済不可能", "mi": "月あたり利息", "need": "返済額をこれ以上に"}};
+const L = window.__LBL__;
 const F = v => '$' + Number(v).toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 2});
 function out(mainKey, big, rows) {
   const L = window.__LBL__;
