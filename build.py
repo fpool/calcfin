@@ -76,6 +76,7 @@ HEAD = """<!DOCTYPE html>
 <title>__TITLE__</title>
 <meta name="description" content="__META__">
 <link rel="canonical" href="__URL__">
+<meta name="google-site-verification" content="ry-cMVGejQMSXohQO6vkAau4Hlj9PuhunhbKBAjhP1c">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="CalcFin">
 <meta property="og:title" content="__TITLE__">
